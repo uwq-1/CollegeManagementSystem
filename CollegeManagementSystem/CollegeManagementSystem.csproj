@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B03430B9-B819-4719-B5B1-3A91E9F6EBC9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CollegeManagementSystem</RootNamespace>
+    <AssemblyName>CollegeManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\KUniversityDbModel.cs" />
+    <Compile Include="Database\StudentCoursesRegistrationRecord.cs" />
+    <Compile Include="Database\StudentGradesRegistrationRecord.cs" />
+    <Compile Include="Database\StudentRegistrationRecord.cs" />
+    <Compile Include="Database\TeacherRegistrationRecord.cs" />
+    <Compile Include="Database\TypesOfCours.cs" />
+    <Compile Include="Database\TypesOfGrade.cs" />
+    <Compile Include="Database\TypesOfMajorSubject.cs" />
+    <Compile Include="Database\TypesOfProgramme.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProgrammes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProgrammes.Designer.cs">
+      <DependentUpon>ManageProgrammes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageStudentsRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageStudentsRecords.Designer.cs">
+      <DependentUpon>ManageStudentsRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentCoursesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentCoursesWindow.Designer.cs">
+      <DependentUpon>StudentCoursesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGradesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGradesWindow.Designer.cs">
+      <DependentUpon>StudentGradesWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentWindow.Designer.cs">
+      <DependentUpon>StudentWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherWindow.Designer.cs">
+      <DependentUpon>TeacherWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProgrammes.resx">
+      <DependentUpon>ManageProgrammes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageStudentsRecords.resx">
+      <DependentUpon>ManageStudentsRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentCoursesWindow.resx">
+      <DependentUpon>StudentCoursesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentGradesWindow.resx">
+      <DependentUpon>StudentGradesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentWindow.resx">
+      <DependentUpon>StudentWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherWindow.resx">
+      <DependentUpon>TeacherWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Scripts\KCollege_db_changes_01.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_02.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_03.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_04.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_05.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_06.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_07.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_08.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_09.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
