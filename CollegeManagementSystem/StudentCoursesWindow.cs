@@ -66,7 +66,7 @@ namespace CollegeManagementSystem
                 string courseName = txtstudentCourseName.Text;
                 string courseLecturer = txtstudentLecturer.Text.ToString();
                 string courseDescription = txtstudentDescription.Text.ToString();
-                string courseSemester = cbstudentSemester.Text;
+                string courseSemester = Convert.ToString(cbstudentSemester.SelectedValue);
 
                 bool isValid = true;
                 string errorMessage = "";
@@ -95,6 +95,22 @@ namespace CollegeManagementSystem
 
                 if (isValid)
                 {
+
+                    var studentCourseRecordsDb = new StudentCoursesRegistrationRecord
+                    {
+                        Coursename = courseName,
+                        Cid = courseId,
+                        Lecturername = courseLecturer,
+                        Sdescription = courseDescription,
+
+                        
+                        Ssemester = courseSemester
+                    };
+
+                    kCollege_DbEntities.StudentCoursesRegistrationRecords.Add(studentCourseRecordsDb);
+                    kCollege_DbEntities.SaveChanges();
+
+
                     // Display output with Messagebox
                     MessageBox.Show($"Thanks for your submission.\n" +
                         $"Course Name : {courseName} Course ID: {courseId} \n\r" +

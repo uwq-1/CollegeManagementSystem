@@ -40,11 +40,10 @@
             this.viewCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentsPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProgrammesListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewStudentsProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitSystemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewTeacherToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewTeacherRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitSystemToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblmainKiwa = new System.Windows.Forms.Label();
@@ -59,7 +58,6 @@
             this.gradesToolStripMenuItem,
             this.studentToolStripMenuItem,
             this.teacherToolStripMenuItem,
-            this.exitSystemToolStripMenuItem,
             this.exitSystemToolStripMenuItem1,
             this.exitSystemToolStripMenuItem2});
             this.menuMainStrip.Location = new System.Drawing.Point(0, 0);
@@ -118,6 +116,7 @@
             this.viewStudentsGradesToolStripMenuItem.Name = "viewStudentsGradesToolStripMenuItem";
             this.viewStudentsGradesToolStripMenuItem.Size = new System.Drawing.Size(215, 24);
             this.viewStudentsGradesToolStripMenuItem.Text = "View Student\'s Grades";
+            this.viewStudentsGradesToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsGradesToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
@@ -134,34 +133,27 @@
             // viewCourseToolStripMenuItem
             // 
             this.viewCourseToolStripMenuItem.Name = "viewCourseToolStripMenuItem";
-            this.viewCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.viewCourseToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
             this.viewCourseToolStripMenuItem.Text = "Add Course ";
             this.viewCourseToolStripMenuItem.Click += new System.EventHandler(this.viewCourseToolStripMenuItem_Click);
             // 
             // viewAllCourseToolStripMenuItem
             // 
             this.viewAllCourseToolStripMenuItem.Name = "viewAllCourseToolStripMenuItem";
-            this.viewAllCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.viewAllCourseToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
             this.viewAllCourseToolStripMenuItem.Text = "View  Course";
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.studentsPToolStripMenuItem,
-            this.viewProgrammesListToolStripMenuItem});
+            this.viewProgrammesListToolStripMenuItem,
+            this.viewStudentsProfileToolStripMenuItem});
             this.teacherToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("teacherToolStripMenuItem.Image")));
             this.teacherToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
             this.teacherToolStripMenuItem.Size = new System.Drawing.Size(114, 83);
             this.teacherToolStripMenuItem.Text = "Student Details";
             this.teacherToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            // 
-            // studentsPToolStripMenuItem
-            // 
-            this.studentsPToolStripMenuItem.Name = "studentsPToolStripMenuItem";
-            this.studentsPToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
-            this.studentsPToolStripMenuItem.Text = "Students Profile";
-            this.studentsPToolStripMenuItem.Click += new System.EventHandler(this.studentsPToolStripMenuItem_Click);
             // 
             // viewProgrammesListToolStripMenuItem
             // 
@@ -170,19 +162,17 @@
             this.viewProgrammesListToolStripMenuItem.Text = "View Programmes List";
             this.viewProgrammesListToolStripMenuItem.Click += new System.EventHandler(this.viewProgrammesListToolStripMenuItem_Click);
             // 
-            // exitSystemToolStripMenuItem
+            // viewStudentsProfileToolStripMenuItem
             // 
-            this.exitSystemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitSystemToolStripMenuItem.Image")));
-            this.exitSystemToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.exitSystemToolStripMenuItem.Name = "exitSystemToolStripMenuItem";
-            this.exitSystemToolStripMenuItem.Size = new System.Drawing.Size(122, 83);
-            this.exitSystemToolStripMenuItem.Text = "Remove Student";
-            this.exitSystemToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.viewStudentsProfileToolStripMenuItem.Name = "viewStudentsProfileToolStripMenuItem";
+            this.viewStudentsProfileToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.viewStudentsProfileToolStripMenuItem.Text = "View Students Profile";
+            this.viewStudentsProfileToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsProfileToolStripMenuItem_Click);
             // 
             // exitSystemToolStripMenuItem1
             // 
             this.exitSystemToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewTeacherToolStripMenuItem1});
+            this.viewTeacherRToolStripMenuItem});
             this.exitSystemToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exitSystemToolStripMenuItem1.Image")));
             this.exitSystemToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.exitSystemToolStripMenuItem1.Name = "exitSystemToolStripMenuItem1";
@@ -190,11 +180,12 @@
             this.exitSystemToolStripMenuItem1.Text = "Teacher";
             this.exitSystemToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
-            // viewTeacherToolStripMenuItem1
+            // viewTeacherRToolStripMenuItem
             // 
-            this.viewTeacherToolStripMenuItem1.Name = "viewTeacherToolStripMenuItem1";
-            this.viewTeacherToolStripMenuItem1.Size = new System.Drawing.Size(157, 24);
-            this.viewTeacherToolStripMenuItem1.Text = "View Teacher";
+            this.viewTeacherRToolStripMenuItem.Name = "viewTeacherRToolStripMenuItem";
+            this.viewTeacherRToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.viewTeacherRToolStripMenuItem.Text = "View Teacher";
+            this.viewTeacherRToolStripMenuItem.Click += new System.EventHandler(this.viewTeacherRToolStripMenuItem_Click);
             // 
             // exitSystemToolStripMenuItem2
             // 
@@ -248,6 +239,7 @@
             this.Name = "MainWindow";
             this.Text = "Kiwa University Centre";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.menuMainStrip.ResumeLayout(false);
             this.menuMainStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -267,15 +259,14 @@
         private System.Windows.Forms.ToolStripMenuItem teachersRegisterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teacherToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem viewTeacherToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem viewTeacherRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem viewCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewStudentsGradesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studentsPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewProgrammesListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewStudentsProfileToolStripMenuItem;
     }
 }

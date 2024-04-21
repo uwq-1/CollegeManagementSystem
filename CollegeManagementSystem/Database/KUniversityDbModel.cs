@@ -12,6 +12,7 @@ namespace CollegeManagementSystem.Database
         {
         }
 
+        public virtual DbSet<LoginRecord> LoginRecords { get; set; }
         public virtual DbSet<StudentCoursesRegistrationRecord> StudentCoursesRegistrationRecords { get; set; }
         public virtual DbSet<StudentGradesRegistrationRecord> StudentGradesRegistrationRecords { get; set; }
         public virtual DbSet<StudentRegistrationRecord> StudentRegistrationRecords { get; set; }
@@ -32,6 +33,16 @@ namespace CollegeManagementSystem.Database
                 .HasMany(e => e.StudentCoursesRegistrationRecords)
                 .WithOptional(e => e.StudentGradesRegistrationRecord)
                 .HasForeignKey(e => e.SGradesRecordsid);
+
+            modelBuilder.Entity<StudentRegistrationRecord>()
+                .HasMany(e => e.LoginRecords)
+                .WithOptional(e => e.StudentRegistrationRecord)
+                .HasForeignKey(e => e.SRecords);
+
+            modelBuilder.Entity<TeacherRegistrationRecord>()
+                .HasMany(e => e.LoginRecords)
+                .WithOptional(e => e.TeacherRegistrationRecord)
+                .HasForeignKey(e => e.TRecords);
 
             modelBuilder.Entity<TypesOfCours>()
                 .HasMany(e => e.StudentCoursesRegistrationRecords)

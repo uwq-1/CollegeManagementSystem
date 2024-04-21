@@ -86,7 +86,7 @@ namespace CollegeManagementSystem
             // https://stackoverflow.com/questions/9321844/how-do-i-clear-a-combobox
             if (studentProgramme.Equals(associateDegree) || studentProgramme.Equals(bachelorDegree))
             {
-                cbstudentProgramme.Items.Clear();
+                //cbstudentProgramme.Items.Clear();
                 cbstudentProgramme.ResetText();  
             }
 
@@ -95,7 +95,7 @@ namespace CollegeManagementSystem
                 lblstudentRandomNumber.Text = "";
             }
 
-            //Close();
+            
         }
 
         public bool isValidEmail(string email)

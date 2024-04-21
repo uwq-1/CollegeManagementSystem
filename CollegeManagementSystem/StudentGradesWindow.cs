@@ -15,45 +15,50 @@ namespace CollegeManagementSystem
     {
         private readonly KUniversityDbModel kCollege_DbEntities;
 
+        private string studentBlank = "";
+
         public StudentGradesWindow()
         {
             InitializeComponent();
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
-
-        public void studentConnectionDb()
+        public void StudentGradeClearButton() 
         {
+            try
+            {
+                string courseGDescription = txtstudentGComments.Text;
+                int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
+                //string errorMessage = "";
+                string s = "";
 
-            string courseGId = cbstudentGCourseId.Text;
-            string courseGName = cbstudentGCourseName.Text;
-            string courseGStudentName = cbstudentGName.Text;
-            string courseGStudentId = cbstudentGIdNo.Text;
-            string courseGLecturer = cbstudentGLecturer.Text;
-            string courseGDescription = txtstudentGComments.Text;
-            int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
+                if (courseGDescription != string.Empty)
+                {
+                    txtstudentGComments.ResetText();
+                    txtstudentGComments.AppendText(studentBlank);
+                }
+
+                // Clear Integer textbox
+                // Reference :
+                // https://stackoverflow.com/questions/16734172/checking-a-textbox-for-an-empty-string-an-integer-or-a-string
+                if (!int.TryParse(s,out courseGGrades))
+                {
+                    txtstudentGGrades.ResetText();
+                    txtstudentGGrades.AppendText(studentBlank);
+                    txtstudentGGrades.Clear();
+                }
 
 
-            var studentGradesRecordsDb = new StudentGradesRegistrationRecord();
-            studentGradesRecordsDb.Coursename = courseGName;
-            studentGradesRecordsDb.Cid = courseGId;
-            studentGradesRecordsDb.Lecturername = courseGLecturer;
-            studentGradesRecordsDb.Sname = courseGStudentName;
-            studentGradesRecordsDb.Sid = courseGStudentId;
-            studentGradesRecordsDb.Scomments = courseGDescription;
-            studentGradesRecordsDb.Sgrade = courseGGrades;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            //studentGradesRecordsDb.SCourseRecordsid = (int)cbstudentGCourseId.SelectedValue;
-            //studentGradesRecordsDb.SCourseRecordsid = (int)cbstudentGCourseName.SelectedValue;
             
-            studentGradesRecordsDb.SGradesid = (int)cbstudentGName.SelectedValue;
-
-
-            kCollege_DbEntities.StudentGradesRegistrationRecords.Add(studentGradesRecordsDb);
-            kCollege_DbEntities.SaveChanges();
         }
 
-        public void studentGradeSubmitButton()
+        public void StudentGradeSubmitButton()
         {
             try
             {
@@ -64,34 +69,12 @@ namespace CollegeManagementSystem
                 string courseGLecturer = cbstudentGLecturer.Text;
                 string courseGDescription = txtstudentGComments.Text;
                 int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
-                
+
 
                 bool isValid = true;
                 string errorMessage = "";
 
-                if (string.IsNullOrWhiteSpace(courseGStudentName) ||
-                    string.IsNullOrWhiteSpace(courseGStudentId))
-                {
-                    isValid = false;
-                    errorMessage += "Error : Please enter missing Student name and/or StudentId.\n\r";
-                    cbstudentGIdNo.Focus();
-                }
-
                 
-                if (string.IsNullOrWhiteSpace(courseGName))
-                {
-                    isValid = false;
-                    errorMessage += "Error : Please enter missing data.\n\r";
-
-                }
-
-                if (string.IsNullOrWhiteSpace(courseGId))
-                {
-                    isValid = false;
-                    errorMessage += "Error : Please enter missing data.\n\r";
-                    cbstudentGCourseId.Focus();
-                }
-
                 if (string.IsNullOrWhiteSpace(courseGLecturer)
                     || string.IsNullOrWhiteSpace(courseGDescription))
                 {
@@ -103,20 +86,39 @@ namespace CollegeManagementSystem
                 if(courseGGrades >= 0 && courseGGrades <= 100)
                 {
                     // true
-                    isValid = false;
                     MessageBox.Show($"Your have earned. {courseGGrades}%");
                     
                 }
-                else
+                /*else
                 {
                     // false
-                    isValid = false;
                     MessageBox.Show("Error : Invalid value entered.\n\r");
                     // errorMessage += "Error : Invalid value entered.\n\r";
-                }
+                }*/
 
-                if (isValid)
+                
+
+                if (isValid == true)
                 {
+
+
+                    var studentGradesRecordsDb = new StudentGradesRegistrationRecord();
+                    studentGradesRecordsDb.Coursename = courseGName;
+                    studentGradesRecordsDb.Cid = courseGId;
+                    studentGradesRecordsDb.Lecturername = courseGLecturer;
+                    studentGradesRecordsDb.Sname = courseGStudentName;
+                    studentGradesRecordsDb.Sid = courseGStudentId;
+                    studentGradesRecordsDb.Scomments = courseGDescription;
+                    studentGradesRecordsDb.Sgrade = courseGGrades;
+
+                    
+
+                    //studentGradesRecordsDb.SGradesid = (int)cbstudentGCourseName.SelectedValue;
+
+                    kCollege_DbEntities.StudentGradesRegistrationRecords.Add(studentGradesRecordsDb);
+                    kCollege_DbEntities.SaveChanges();
+
+
                     // Display output with Messagebox
                     MessageBox.Show($"Thanks for your submission.\n" +
                         $"Course Name : {courseGName} Course ID: {courseGId} \n\r" +
@@ -134,7 +136,7 @@ namespace CollegeManagementSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                //throw;
+                
             }
 
         }
@@ -142,12 +144,14 @@ namespace CollegeManagementSystem
 
         private void btnstudentGradesSubmit_Click(object sender, EventArgs e)
         {
-            studentGradeSubmitButton();
+            
+            StudentGradeSubmitButton();
+            
         }
 
         private void btnstudentGradesClear_Click(object sender, EventArgs e)
         {
-
+            StudentGradeClearButton();
         }
 
 

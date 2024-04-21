@@ -187,7 +187,7 @@
             // 
             this.lblteacherRandomNumber.AutoSize = true;
             this.lblteacherRandomNumber.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblteacherRandomNumber.Location = new System.Drawing.Point(69, 92);
+            this.lblteacherRandomNumber.Location = new System.Drawing.Point(79, 92);
             this.lblteacherRandomNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblteacherRandomNumber.Name = "lblteacherRandomNumber";
             this.lblteacherRandomNumber.Size = new System.Drawing.Size(0, 18);

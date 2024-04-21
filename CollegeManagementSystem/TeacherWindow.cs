@@ -160,7 +160,6 @@ namespace CollegeManagementSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                //throw;
             }
             
         }

@@ -16,9 +16,9 @@ namespace CollegeManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
-            //Application.Run(new StudentWindow());
-            //Application.Run(new TeacherWindow());
+            //Application.Run(new MainWindow());
+            
+            Application.Run(new LoginWindow());
         }
     }
 }
