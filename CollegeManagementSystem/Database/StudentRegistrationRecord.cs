@@ -9,12 +9,6 @@ namespace CollegeManagementSystem.Database
     [Table("StudentRegistrationRecord")]
     public partial class StudentRegistrationRecord
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StudentRegistrationRecord()
-        {
-            LoginRecords = new HashSet<LoginRecord>();
-        }
-
         public int id { get; set; }
 
         [StringLength(15)]
@@ -36,9 +30,6 @@ namespace CollegeManagementSystem.Database
 
         [Column(TypeName = "date")]
         public DateTime? DateOfBirth { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginRecord> LoginRecords { get; set; }
 
         public virtual TypesOfProgramme TypesOfProgramme { get; set; }
     }

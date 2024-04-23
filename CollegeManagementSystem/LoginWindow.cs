@@ -34,23 +34,9 @@ namespace CollegeManagementSystem
                 var username = txtloginUsername.Text.Trim();
                 var password = txtloginPassword.Text;
 
+                //var genericPassword = Utils.GenerateRandomPassword();
 
-                // Convert the input string to a byte array  and compute the hash 
-                byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
-
-
-                // Create a new Stringbuilder to collect the bytes
-                // and create a string
-                StringBuilder sBuilder = new StringBuilder();
-
-                // Loop through each byte of the hashed data
-                // and format each one as a hexadecimal string
-                for (int i = 0; i < data.Length; i++) 
-                {
-                    sBuilder.Append(data[i].ToString("x2"));
-                }
-
-                var hashed_password = sBuilder.ToString();
+                var hashed_password = Utils.HashPassword(password);
 
 
                 //var tuser = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.TeacherRegistrationRecord.Tid == username && q.password == password);
@@ -60,10 +46,11 @@ namespace CollegeManagementSystem
                     .LoginRecords
                     .FirstOrDefault(q => 
                     
-                        q.username == username || 
-                        q.StudentRegistrationRecord.Sid == username || 
-                        q.TeacherRegistrationRecord.Tid == username &&
+                        q.username == username  
+                        && 
                         q.password == hashed_password
+                        &&
+                        q.isActive == true
 
                     );
 
@@ -74,20 +61,19 @@ namespace CollegeManagementSystem
                 }
                 else
                 {
-                    var mainWindow = new MainWindow(this);
+                    var role = user.UserRoles.FirstOrDefault();
+                    var roleShortName = role.Role.shortname;
+                    var mainWindow = new MainWindow(this, role);
                     mainWindow.Show();
                     Hide();
                 }
-
-
-                
 
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Something went wrong. Please try again");
-                //throw;
+               
             }
         }
     }

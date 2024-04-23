@@ -18,6 +18,7 @@ namespace CollegeManagementSystem
         private bool isEditMode;
         private string fee;
         protected string _idNumber = "N/A";
+        
 
         private ManageArchiveStudentRecords _manageArchiveStudentRecords = null;
         
@@ -109,10 +110,8 @@ namespace CollegeManagementSystem
                 studentTution = studentProgramme.Equals(associateDegree) ? "128000" : "256000";
 
                 string studentRandomNo = lblstudentSRRandomNumber.Text;
-                studentRandomNo = GetStudentId();
-                var randomNo = "";
-
-                randomNo = lblstudentSRRandomNumber.Text.Equals(studentRandomNo) ? studentRandomNo : "N/A";
+                
+                
 
                 var isValid = true;
                 var errorMessage = "";
@@ -178,11 +177,11 @@ namespace CollegeManagementSystem
                         studentRegistration.TypeOfProgrammeid = (int)cbstudentSRProgramme.SelectedValue;
 
                         
-                        
+
                         kCollege_DbEntities.SaveChanges();
                         
                         MessageBox.Show($"Thanks for your submission.\n" +
-                            $"Name : {studentName}  ID: {studentRandomNo} D-ID: {randomNo}\n\r" +
+                            $"Name : {studentName}  ID: {studentRandomNo} \n\r" +
                             $"Student Phone : {studentPhone}\n\r" +
                             $"Student Email : {studentEmail}\n\r" +
                             $"Student DOB : {studentDOB}\n\r" +
@@ -194,7 +193,7 @@ namespace CollegeManagementSystem
                     {
                         // Add Code here
 
-                        GetStudentId();
+                        studentRandomNo = GetStudentId();
 
                         var studentRegistration = new StudentRegistrationRecord
                         {
@@ -207,14 +206,14 @@ namespace CollegeManagementSystem
 
                             TypeOfProgrammeid = (int)cbstudentSRProgramme.SelectedValue
                         };
-                        
 
+                        //string studentDefaultPassword = Utils.GenerateRandomPassword();
                         kCollege_DbEntities.StudentRegistrationRecords.Add(studentRegistration);
                         
 
-                        //GetStudentId();
+                        
                         MessageBox.Show($"Thanks for your submission.\n" +
-                            $"Name : {studentName}  ID: {studentRandomNo} D-ID: {randomNo}\n\r" +
+                            $"Name : {studentName}  ID: {studentRandomNo} \n\r" +
                             $"Student Phone : {studentPhone}\n\r" +
                             $"Student Email : {studentEmail}\n\r" +
                             $"Student DOB : {studentDOB}\n\r" +
@@ -224,11 +223,7 @@ namespace CollegeManagementSystem
                     }
                     
                     kCollege_DbEntities.SaveChanges();
-                    
                     _manageArchiveStudentRecords.PopulateGrid();
-                    
-                    
-
                     MessageBox.Show("Operation completed.");
                     Close();
 

@@ -122,7 +122,7 @@ namespace CollegeManagementSystem
             gvTeacherRecords.Columns[0].Visible = false;
             gvTeacherRecords.Columns["TID"].HeaderText = "T-ID";
             gvTeacherRecords.Columns["NAME"].HeaderText = "LECTURER";
-            gvTeacherRecords.Columns["MAJORSUBJECT"].HeaderText = "Instructor";
+            gvTeacherRecords.Columns["MAJORSUBJECT"].HeaderText = "INSTRUCTOR";
             gvTeacherRecords.Columns["EMAIL"].HeaderText = "EMAIL";
             gvTeacherRecords.Columns["TEL"].HeaderText = "PHONE";
             gvTeacherRecords.Columns["DOB"].HeaderText = "DOB";

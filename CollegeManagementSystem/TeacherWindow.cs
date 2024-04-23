@@ -97,7 +97,7 @@ namespace CollegeManagementSystem
                 var errorMessage = "";
 
                 string teacherRandomNo = lblteacherRandomNumber.Text;
-                teacherRandomNo = GetTeacherId();
+                
 
 
 
@@ -128,7 +128,7 @@ namespace CollegeManagementSystem
 
                 if (isValid == true)
                 {
-
+                    teacherRandomNo = GetTeacherId();
                     var teacherRecords = new TeacherRegistrationRecord();
                     teacherRecords.name = teacherName;
                     teacherRecords.Tid = teacherRandomNo;
@@ -139,12 +139,12 @@ namespace CollegeManagementSystem
 
                     teacherRecords.TypesOfMajorSubjectsid = (int)cbteacherSubjectArea.SelectedValue;
 
+                    
+
                     kCollege_DbEntities.TeacherRegistrationRecords.Add(teacherRecords);
                     kCollege_DbEntities.SaveChanges();
 
 
-
-                    GetTeacherId();
                     MessageBox.Show($"Thanks for your submission.\n" +
                     $"Name : {teacherName} ID: {teacherRandomNo} \n\r" +
                     $"Teacher Phone : {teacherPhone}\n\r" +

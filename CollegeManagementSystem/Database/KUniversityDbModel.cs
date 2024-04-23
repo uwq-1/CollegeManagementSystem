@@ -13,6 +13,7 @@ namespace CollegeManagementSystem.Database
         }
 
         public virtual DbSet<LoginRecord> LoginRecords { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<StudentCoursesRegistrationRecord> StudentCoursesRegistrationRecords { get; set; }
         public virtual DbSet<StudentGradesRegistrationRecord> StudentGradesRegistrationRecords { get; set; }
         public virtual DbSet<StudentRegistrationRecord> StudentRegistrationRecords { get; set; }
@@ -21,9 +22,16 @@ namespace CollegeManagementSystem.Database
         public virtual DbSet<TypesOfGrade> TypesOfGrades { get; set; }
         public virtual DbSet<TypesOfMajorSubject> TypesOfMajorSubjects { get; set; }
         public virtual DbSet<TypesOfProgramme> TypesOfProgrammes { get; set; }
+        public virtual DbSet<TypesOfSemester> TypesOfSemesters { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<LoginRecord>()
+                .HasMany(e => e.UserRoles)
+                .WithOptional(e => e.LoginRecord)
+                .HasForeignKey(e => e.userid);
+
             modelBuilder.Entity<StudentCoursesRegistrationRecord>()
                 .HasMany(e => e.StudentGradesRegistrationRecords)
                 .WithOptional(e => e.StudentCoursesRegistrationRecord)
@@ -33,16 +41,6 @@ namespace CollegeManagementSystem.Database
                 .HasMany(e => e.StudentCoursesRegistrationRecords)
                 .WithOptional(e => e.StudentGradesRegistrationRecord)
                 .HasForeignKey(e => e.SGradesRecordsid);
-
-            modelBuilder.Entity<StudentRegistrationRecord>()
-                .HasMany(e => e.LoginRecords)
-                .WithOptional(e => e.StudentRegistrationRecord)
-                .HasForeignKey(e => e.SRecords);
-
-            modelBuilder.Entity<TeacherRegistrationRecord>()
-                .HasMany(e => e.LoginRecords)
-                .WithOptional(e => e.TeacherRegistrationRecord)
-                .HasForeignKey(e => e.TRecords);
 
             modelBuilder.Entity<TypesOfCours>()
                 .HasMany(e => e.StudentCoursesRegistrationRecords)

@@ -142,7 +142,7 @@ namespace CollegeManagementSystem
                 var errorMessage = "";
 
                 string teacherRandomNo = lblteacherRandomNumber.Text;
-                teacherRandomNo = GetTeacherId();
+                
 
 
 
@@ -203,7 +203,7 @@ namespace CollegeManagementSystem
                     }
                     else
                     {
-
+                        teacherRandomNo = GetTeacherId();
                         var teacherRegistration = new TeacherRegistrationRecord 
                         {
                             name = teacherName,
@@ -219,7 +219,7 @@ namespace CollegeManagementSystem
 
                         kCollege_DbEntities.TeacherRegistrationRecords.Add(teacherRegistration);
 
-                        GetTeacherId();
+                        
                         MessageBox.Show($"Thanks for your submission.\n" +
                         $"Name : {teacherName} ID: {teacherRandomNo} \n\r" +
                         $"Teacher Phone : {teacherPhone}\n\r" +

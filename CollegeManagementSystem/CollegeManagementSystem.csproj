@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditCourse.Designer.cs">
+      <DependentUpon>AddEditCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddEditGrades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,8 +116,15 @@
     <Compile Include="AddEditTeachers.Designer.cs">
       <DependentUpon>AddEditTeachers.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\KUniversityDbModel.cs" />
     <Compile Include="Database\LoginRecord.cs" />
+    <Compile Include="Database\Role.cs" />
     <Compile Include="Database\StudentCoursesRegistrationRecord.cs" />
     <Compile Include="Database\StudentGradesRegistrationRecord.cs" />
     <Compile Include="Database\StudentRegistrationRecord.cs" />
@@ -120,6 +133,8 @@
     <Compile Include="Database\TypesOfGrade.cs" />
     <Compile Include="Database\TypesOfMajorSubject.cs" />
     <Compile Include="Database\TypesOfProgramme.cs" />
+    <Compile Include="Database\TypesOfSemester.cs" />
+    <Compile Include="Database\UserRole.cs" />
     <Compile Include="LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +153,12 @@
     <Compile Include="ManageArchiveStudentRecords.Designer.cs">
       <DependentUpon>ManageArchiveStudentRecords.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageCourseRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCourseRecords.Designer.cs">
+      <DependentUpon>ManageCourseRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageProgrammes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +176,12 @@
     </Compile>
     <Compile Include="ManageTeacherRecords.Designer.cs">
       <DependentUpon>ManageTeacherRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageUser.Designer.cs">
+      <DependentUpon>ManageUser.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentCoursesWindow.cs">
       <SubType>Form</SubType>
@@ -182,6 +209,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="AddEditCourse.resx">
+      <DependentUpon>AddEditCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditGrades.resx">
       <DependentUpon>AddEditGrades.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +225,9 @@
     <EmbeddedResource Include="AddEditTeachers.resx">
       <DependentUpon>AddEditTeachers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +237,9 @@
     <EmbeddedResource Include="ManageArchiveStudentRecords.resx">
       <DependentUpon>ManageArchiveStudentRecords.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageCourseRecords.resx">
+      <DependentUpon>ManageCourseRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageProgrammes.resx">
       <DependentUpon>ManageProgrammes.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageTeacherRecords.resx">
       <DependentUpon>ManageTeacherRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageUser.resx">
+      <DependentUpon>ManageUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentCoursesWindow.resx">
       <DependentUpon>StudentCoursesWindow.cs</DependentUpon>
@@ -261,6 +301,7 @@
     <Content Include="Data\Scripts\KCollege_db_changes_08.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_09.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_10.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_11.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

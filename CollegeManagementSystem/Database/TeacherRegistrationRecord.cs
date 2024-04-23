@@ -9,12 +9,6 @@ namespace CollegeManagementSystem.Database
     [Table("TeacherRegistrationRecord")]
     public partial class TeacherRegistrationRecord
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TeacherRegistrationRecord()
-        {
-            LoginRecords = new HashSet<LoginRecord>();
-        }
-
         public int id { get; set; }
 
         [StringLength(50)]
@@ -32,9 +26,6 @@ namespace CollegeManagementSystem.Database
         public string Tid { get; set; }
 
         public int? TypesOfMajorSubjectsid { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginRecord> LoginRecords { get; set; }
 
         public virtual TypesOfMajorSubject TypesOfMajorSubject { get; set; }
     }

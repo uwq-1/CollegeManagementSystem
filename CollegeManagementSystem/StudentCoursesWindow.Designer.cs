@@ -129,11 +129,12 @@
             // cbstudentSemester
             // 
             this.cbstudentSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstudentSemester.Font = new System.Drawing.Font("Lucida Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbstudentSemester.FormattingEnabled = true;
             this.cbstudentSemester.Location = new System.Drawing.Point(151, 348);
             this.cbstudentSemester.Margin = new System.Windows.Forms.Padding(4);
             this.cbstudentSemester.Name = "cbstudentSemester";
-            this.cbstudentSemester.Size = new System.Drawing.Size(317, 21);
+            this.cbstudentSemester.Size = new System.Drawing.Size(329, 23);
             this.cbstudentSemester.TabIndex = 18;
             // 
             // lblstudentCourseId

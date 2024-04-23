@@ -30,7 +30,7 @@ namespace CollegeManagementSystem
             string courseName = txtstudentCourseName.Text;
             string courseLecturer = txtstudentLecturer.Text;
             string courseDescription = txtstudentDescription.Text;
-            string courseSemester = cbstudentSemester.Text;
+            //string courseSemester = cbstudentSemester.Text;
 
             if (courseId != string.Empty)
             {
@@ -66,7 +66,7 @@ namespace CollegeManagementSystem
                 string courseName = txtstudentCourseName.Text;
                 string courseLecturer = txtstudentLecturer.Text.ToString();
                 string courseDescription = txtstudentDescription.Text.ToString();
-                string courseSemester = Convert.ToString(cbstudentSemester.SelectedValue);
+                string courseSemester = cbstudentSemester.Text.ToString();
 
                 bool isValid = true;
                 string errorMessage = "";
@@ -103,8 +103,8 @@ namespace CollegeManagementSystem
                         Lecturername = courseLecturer,
                         Sdescription = courseDescription,
 
-                        
-                        Ssemester = courseSemester
+
+                        TypesOfSemesterid = (int)cbstudentSemester.SelectedValue
                     };
 
                     kCollege_DbEntities.StudentCoursesRegistrationRecords.Add(studentCourseRecordsDb);
@@ -127,7 +127,6 @@ namespace CollegeManagementSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                //throw;
             }
 
             // Add color to button click
@@ -149,8 +148,15 @@ namespace CollegeManagementSystem
         private void StudentCoursesWindow_Load(object sender, EventArgs e)
         {
             // Select * from TypesOfCourses
-            var scoures = kCollege_DbEntities.TypesOfCourses;
+            //var scoures = kCollege_DbEntities.TypesOfCourses.ToList();
             //cbstudentSemester.Items.Clear();
+
+            // Select * from TypesOfSemester
+            var ssemsters = kCollege_DbEntities.TypesOfSemesters.ToList();
+            cbstudentSemester.DisplayMember = "Name";
+            cbstudentSemester.ValueMember = "id";
+            cbstudentSemester.DataSource = ssemsters;
+
         }
     }
 }

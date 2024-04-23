@@ -18,7 +18,8 @@ namespace CollegeManagementSystem
         string studentBlank = "";
         string fee;
         protected string _idNumber = "N/A";
-
+        protected string _genericPassword = "";
+        public string studentDefaultPassword;
 
         private readonly KUniversityDbModel kCollege_DbEntities; 
 
@@ -44,6 +45,12 @@ namespace CollegeManagementSystem
             return _idNumber = GetRandomNumber();
             
         }
+
+        public string GetStudentPassword()
+        {
+            return _genericPassword = Utils.GenerateRandomPassword();
+        }
+
 
         private void studentResetButton()
         {
@@ -118,8 +125,7 @@ namespace CollegeManagementSystem
                 string studentProgramme = cbstudentProgramme.Text.ToString();
 
                 string studentRandomNo = lblstudentRandomNumber.Text;
-                //studentRandomNo = GetRandomNumber();
-                studentRandomNo = GetStudentId();
+                
 
                 
 
@@ -182,6 +188,8 @@ namespace CollegeManagementSystem
 
                 if (isValid == true)
                 {
+                    studentRandomNo = GetStudentId();
+                    studentDefaultPassword = GetStudentPassword();
 
                     var studentRecords = new StudentRegistrationRecord();
                     studentRecords.Name = studentName;
@@ -193,12 +201,15 @@ namespace CollegeManagementSystem
 
                     studentRecords.TypeOfProgrammeid = (int)cbstudentProgramme.SelectedValue;
 
+
+                    
+
                     kCollege_DbEntities.StudentRegistrationRecords.Add(studentRecords);
                     kCollege_DbEntities.SaveChanges();
 
-                    GetStudentId();
+                    
                     MessageBox.Show($"Thanks for your submission.\n" +
-                        $"Name : {studentName}  ID: {studentRandomNo}\n\r" +
+                        $"Name : {studentName}  ID: {studentRandomNo} Default Password:{studentDefaultPassword} \n\r" +
                         $"Student Phone : {studentPhone}\n\r" +
                         $"Student Email : {studentEmail}\n\r" +
                         $"Student DOB : {studentDateOfBirth}\n\r" +

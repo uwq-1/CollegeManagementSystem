@@ -38,9 +38,13 @@ namespace CollegeManagementSystem.Database
 
         public int? SGradesRecordsid { get; set; }
 
+        public int? TypesOfSemesterid { get; set; }
+
         public virtual StudentGradesRegistrationRecord StudentGradesRegistrationRecord { get; set; }
 
         public virtual TypesOfCours TypesOfCours { get; set; }
+
+        public virtual TypesOfSemester TypesOfSemester { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentGradesRegistrationRecord> StudentGradesRegistrationRecords { get; set; }
