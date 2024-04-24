@@ -8,29 +8,9 @@ CREATE TABLE LoginRecords(
 	password  nvarchar(100) NOT NULL,
 );
 
-ALTER TABLE  LoginRecords
-ADD   SRecords int, TRecords int;
-
-
--- Create a foreign key to link the two tables.
-ALTER TABLE  LoginRecords
-ADD CONSTRAINT FK_LoginRecords_TeacherRegistrationRecord
-FOREIGN KEY (TRecords) REFERENCES TeacherRegistrationRecord(id);
-
-
-ALTER TABLE  LoginRecords
-ADD CONSTRAINT FK_LoginRecords_StudentRegistrationRecord
-FOREIGN KEY (SRecords) REFERENCES StudentRegistrationRecord(id);
 
 --*****Updated Changes Made Here*******-------
 
--- Drop a foreign key
-ALTER TABLE LoginRecords
-DROP CONSTRAINT FK_LoginRecords_StudentRegistrationRecord, FK_LoginRecords_TeacherRegistrationRecord;
-
--- Delete the columns relating to the foreign key
-ALTER TABLE LoginRecords
-DROP COLUMN  TRecords, SRecords;
 
 -- Add new column to table 
 ALTER TABLE  LoginRecords
@@ -65,3 +45,25 @@ FOREIGN KEY (roleid) REFERENCES Roles(id);
 
 
 
+
+--*****Updated Changes Made Here*******-------
+
+ALTER TABLE  LoginRecords
+ADD   studentid int, teacherid int;
+
+
+ALTER TABLE  StudentRegistrationRecord
+ADD  SdefaultPassword nvarchar(100);
+
+ALTER TABLE  TeacherRegistrationRecord
+ADD  TdefaultPassword nvarchar(100);
+
+-- Create a foreign key to link the two tables.
+ALTER TABLE  LoginRecords
+ADD CONSTRAINT FK_LoginRecords_TeacherRegistrationRecord
+FOREIGN KEY (teacherid) REFERENCES TeacherRegistrationRecord(id);
+
+
+ALTER TABLE  LoginRecords
+ADD CONSTRAINT FK_LoginRecords_StudentRegistrationRecord
+FOREIGN KEY (studentid) REFERENCES StudentRegistrationRecord(id);

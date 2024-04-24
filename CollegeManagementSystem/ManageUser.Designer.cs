@@ -56,7 +56,7 @@
             this.btndeativateUser.Name = "btndeativateUser";
             this.btndeativateUser.Size = new System.Drawing.Size(277, 47);
             this.btndeativateUser.TabIndex = 24;
-            this.btndeativateUser.Text = "Deactivate/Acitivate User";
+            this.btndeativateUser.Text = "Deactivate/Activate User";
             this.btndeativateUser.UseVisualStyleBackColor = true;
             this.btndeativateUser.Click += new System.EventHandler(this.btndeativateUser_Click);
             // 
@@ -103,6 +103,7 @@
             this.Controls.Add(this.lbluserCRTitle);
             this.Name = "ManageUser";
             this.Text = "Manage User";
+            this.Load += new System.EventHandler(this.ManageUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUserSettingsRecords)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

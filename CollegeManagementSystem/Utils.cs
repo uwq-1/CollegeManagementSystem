@@ -23,12 +23,14 @@ namespace CollegeManagementSystem
             return isOpen;
         }
 
-        public static string  DefaultHashedPassword()
+        public static string  DefaultHashedPassword(string password)
         {
             SHA256 sha = SHA256.Create();
+            
             // Convert the input string to a byte array  and compute the hash 
-            byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(""));
+            byte[] data = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
 
+            
 
             // Create a new Stringbuilder to collect the bytes
             // and create a string

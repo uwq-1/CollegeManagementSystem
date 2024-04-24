@@ -14,10 +14,23 @@ namespace CollegeManagementSystem
     public partial class MainWindow : Form
     {
 
+        private LoginRecord _loginRecord;
+
+
+        private StudentRegistrationRecord _studentRegistration;
+
+
         private LoginWindow _login;
         public string _roleName;
+        
         public UserRole _role;
+
         //public UserRole userRole;
+
+
+        private readonly KUniversityDbModel kCollege_DbEntities;
+
+
 
         public MainWindow()
         {
@@ -27,15 +40,18 @@ namespace CollegeManagementSystem
             lblmainUniversity.BackColor = System.Drawing.Color.Transparent;
         }
 
-        public MainWindow(LoginWindow login, UserRole role)
+        public MainWindow(LoginWindow login, UserRole role, LoginRecord loginRecord)
         {
             InitializeComponent();
             _login = login;
             _role = role;
+            _loginRecord = loginRecord;
             _roleName = role.LoginRecord.UserRoles.FirstOrDefault().Role.shortname;
             
+
         }
 
+        
 
         private void studentsRegisterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -179,8 +195,40 @@ namespace CollegeManagementSystem
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+
+
+            // Getting user password
+            
+
+            var user_Password = _login.txtloginPassword.Text;
+            var old_Password_hash = _loginRecord.password;
+
+
+
+            // Get hash password
+
+            //var spasswd = "";
+
+
+            
+            //var hashed_password = Utils.DefaultHashedPassword(user_Password);
+            //var genericPassword = user_Password;
+            var genericPassword = Utils.GenerateRandomPassword();
+            var hashed_password = Utils.DefaultHashedPassword(genericPassword);
+
+            //var userpassword = _loginRecord.password;
+            var userpassword = _role.LoginRecord.password;
+
+            if (userpassword == hashed_password)
+            {
+                var resetPassword = new ResetPassword(_loginRecord);
+                resetPassword.ShowDialog();
+            }
+
+
             var username = _role.LoginRecord.username;
-            tsslloginStatus.Text = $"Login currently as ID/Name : {username}";
+            
+            tsslloginStatus.Text = $"Login currently as ID / Name : {username}";
 
             if (_roleName != "admin")
             {

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CollegeManagementSystem.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CollegeManagementSystem
 {
@@ -19,7 +20,7 @@ namespace CollegeManagementSystem
         public ManageUser()
         {
             InitializeComponent();
-            studentWindow = new StudentWindow();
+            //studentWindow = new StudentWindow();
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
@@ -28,7 +29,7 @@ namespace CollegeManagementSystem
 
             if (!Utils.FormIsOpen("AddUser"))
             {
-                var addUser = new AddUser
+                var addUser = new AddUser(this)
                 {
                     MdiParent = this.MdiParent
                 };
@@ -44,14 +45,21 @@ namespace CollegeManagementSystem
             {
                 // get Id of selected row
                 var id = (int)gvUserSettingsRecords.SelectedRows[0].Cells["id"].Value;
-
+                
+                // Getting student password
+                var studentPassword = studentWindow.studentDefaultPassword;
                 // query database  for record
                 var user = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.id == id);
-                var genericPassword = studentWindow.studentDefaultPassword;
-                var hashed_password = Utils.HashPassword(genericPassword);
+                var genericSPassword = studentPassword;
+                //var hashed_password = Utils.HashPassword(genericSPassword);
+                var hashed_password = Utils.DefaultHashedPassword(genericSPassword);
+                
                 user.password = hashed_password;
+
+
                 kCollege_DbEntities.SaveChanges();
                 MessageBox.Show("Your password has been reset!");
+                PopulateGrid();
             }
             catch (Exception ex)
             {
@@ -75,6 +83,20 @@ namespace CollegeManagementSystem
                 user.isActive = user.isActive == true ? false: true;
                 kCollege_DbEntities.SaveChanges();
                 MessageBox.Show("Active Status has changed!");
+                PopulateGrid();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error : {ex.Message}");
+            }
+        }
+
+        private void ManageUser_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                PopulateGrid();
             }
             catch (Exception ex)
             {
@@ -84,6 +106,34 @@ namespace CollegeManagementSystem
 
 
 
+        public void PopulateGrid()
+        {
+            var userinfo = kCollege_DbEntities
+                .LoginRecords
+                .Select(q => new {
+                    ID = q.id,
+                    USERNAME = q.username,
+                    USERID =   q.UserRoles.FirstOrDefault().userid,
+                    ROLE =     q.UserRoles.FirstOrDefault().Role.name,
+                    STATUS =   q.isActive,
+                    STUNAME =  q.StudentRegistrationRecord.Name,
+                    LECTURER = q.TeacherRegistrationRecord.name
+                })
+                .ToList();
+
+           
+
+            gvUserSettingsRecords.DataSource = userinfo;
+            //gvUserSettingsRecords.Columns[0].HeaderText = "ID";
+            gvUserSettingsRecords.Columns["ID"].Visible = false;
+            gvUserSettingsRecords.Columns["USERNAME"].HeaderText = "Username";
+            gvUserSettingsRecords.Columns["USERID"].HeaderText = "Userid";
+            gvUserSettingsRecords.Columns["ROLE"].HeaderText = "Role";
+            gvUserSettingsRecords.Columns["STATUS"].HeaderText = "Status";
+            gvUserSettingsRecords.Columns["STUNAME"].HeaderText = "Student name";
+            gvUserSettingsRecords.Columns["LECTURER"].HeaderText = "LECTURER";
+            
+        }
 
 
 

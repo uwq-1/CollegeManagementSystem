@@ -154,6 +154,7 @@ namespace CollegeManagementSystem
                 if (string.IsNullOrWhiteSpace(studentName))
                 {
                     isValid = false;
+                    studentDefaultPassword = "";
                     lblstudentRandomNumber.ResetText();
                     errorMessage += "Error : Please enter missing data.\n\r";
                     txtstudentName.Focus();
@@ -162,6 +163,7 @@ namespace CollegeManagementSystem
                 if (string.IsNullOrWhiteSpace(studentProgramme))
                 {
                     isValid = false;
+                    studentDefaultPassword = "";
                     lblstudentRandomNumber.ResetText();
                     errorMessage += "Error : Please enter missing data.\n\r";
                     cbstudentProgramme.Focus();
@@ -171,6 +173,7 @@ namespace CollegeManagementSystem
                 {
                     isValid = false;
                     isValidEmail(studentEmail);
+                    studentDefaultPassword = "";
                     lblstudentRandomNumber.ResetText();
                     errorMessage += "Error : Please enter correct information.\n\r";
                     txtstudentEmail.Focus();
@@ -189,27 +192,55 @@ namespace CollegeManagementSystem
                 if (isValid == true)
                 {
                     studentRandomNo = GetStudentId();
+                    // Generate Default Password 
                     studentDefaultPassword = GetStudentPassword();
+                    var generic_password = studentDefaultPassword;
+                    var password = Utils.HashPassword(studentDefaultPassword);
+
+                    
 
                     var studentRecords = new StudentRegistrationRecord();
+                    //studentRecords.id = studentPrimaryKey;
                     studentRecords.Name = studentName;
                     studentRecords.Sid = studentRandomNo;
                     studentRecords.Phone = studentPhone;
                     studentRecords.Email = studentEmail;    
                     studentRecords.Stution = studentTution;
                     studentRecords.DateOfBirth = studentDateOfBirth;
+                    studentRecords.SdefaultPassword = password;
+
+                    // stored primary key id
+                    int studentPrimaryKey = studentRecords.id;
+
+                    var loginRecords = new LoginRecord 
+                    {
+                        studentid = studentPrimaryKey,
+                        username = studentRandomNo,
+                        password = password,
+                        
+                        isActive = true
+                        
+                    };
+
+                    var userRoles = new UserRole
+                    { 
+                        userid = studentPrimaryKey,
+                        roleid = 3 
+                    };
 
                     studentRecords.TypeOfProgrammeid = (int)cbstudentProgramme.SelectedValue;
 
 
-                    
+                    kCollege_DbEntities.LoginRecords.Add(loginRecords);
+
+                    kCollege_DbEntities.UserRoles.Add(userRoles);
 
                     kCollege_DbEntities.StudentRegistrationRecords.Add(studentRecords);
                     kCollege_DbEntities.SaveChanges();
 
                     
                     MessageBox.Show($"Thanks for your submission.\n" +
-                        $"Name : {studentName}  ID: {studentRandomNo} Default Password:{studentDefaultPassword} \n\r" +
+                        $"Name : {studentName}  ID: {studentRandomNo} Default Password: {generic_password} \n\r" +
                         $"Student Phone : {studentPhone}\n\r" +
                         $"Student Email : {studentEmail}\n\r" +
                         $"Student DOB : {studentDateOfBirth}\n\r" +

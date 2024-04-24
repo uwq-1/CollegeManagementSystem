@@ -26,6 +26,14 @@ namespace CollegeManagementSystem.Database
 
         public bool? isActive { get; set; }
 
+        public int? studentid { get; set; }
+
+        public int? teacherid { get; set; }
+
+        public virtual StudentRegistrationRecord StudentRegistrationRecord { get; set; }
+
+        public virtual TeacherRegistrationRecord TeacherRegistrationRecord { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserRole> UserRoles { get; set; }
     }

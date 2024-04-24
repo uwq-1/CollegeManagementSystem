@@ -63,14 +63,15 @@ namespace CollegeManagementSystem
                 {
                     var role = user.UserRoles.FirstOrDefault();
                     var roleShortName = role.Role.shortname;
-                    var mainWindow = new MainWindow(this, role);
+                    //var login = 
+                    var mainWindow = new MainWindow(this, role, user);
                     mainWindow.Show();
                     Hide();
                 }
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Something went wrong. Please try again");
                

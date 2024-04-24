@@ -15,12 +15,15 @@ namespace CollegeManagementSystem
     {
 
         private readonly KUniversityDbModel kCollege_DbEntities;
-        private StudentWindow studentWindow;
-        public AddUser()
+        
+
+        private ManageUser _manageUser;
+
+        public AddUser(ManageUser manageUser)
         {
             InitializeComponent();
-            studentWindow = new StudentWindow();
             kCollege_DbEntities = new KUniversityDbModel();
+            _manageUser = manageUser;
         }
 
         private void AddUser_Load(object sender, EventArgs e)
@@ -38,20 +41,50 @@ namespace CollegeManagementSystem
 
         private void btnaddUserSubmit_Click(object sender, EventArgs e)
         {
-            var username = txtaddUserName.Text;
-            var roleId = (int)cbRoles.SelectedValue;
-            var genericPassword = studentWindow.studentDefaultPassword;
-            var password = Utils.HashPassword(genericPassword);
-            var user = new LoginRecord
+            
+            try
             {
-                //LoginRecord
-                username =  username,
-                password =  password,
-                isActive =  true
-            };
+                var username = txtaddUserName.Text;
+                var roleId = (int)cbRoles.SelectedValue;
+                var genericPassword = Utils.GenerateRandomPassword();
+                //var password = Utils.DefaultHashedPassword(genericPassword);
+                
+                var password = Utils.HashPassword(genericPassword);
+                var user = new LoginRecord
+                {
+                    //LoginRecord
+                    username = username,
+                    password = password,
+                    isActive = true
+                };
 
-            kCollege_DbEntities.LoginRecords.Add(user);
-            kCollege_DbEntities.SaveChanges();
+
+                var userid = user.id;
+                var roleid = roleId;
+
+                var userRoles = new UserRole
+                {
+                    userid = userid,
+                    roleid = roleid
+                };
+
+                
+                kCollege_DbEntities.UserRoles.Add(userRoles);
+
+                kCollege_DbEntities.LoginRecords.Add(user);
+
+                kCollege_DbEntities.SaveChanges();
+
+                MessageBox.Show("User successfully created!");
+                _manageUser.PopulateGrid();
+                MessageBox.Show($"User default password is  {genericPassword} ");
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An Error has Occured!");
+            }
+
 
         }
     }

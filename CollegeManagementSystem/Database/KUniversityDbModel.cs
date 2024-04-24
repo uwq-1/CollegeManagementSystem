@@ -42,6 +42,16 @@ namespace CollegeManagementSystem.Database
                 .WithOptional(e => e.StudentGradesRegistrationRecord)
                 .HasForeignKey(e => e.SGradesRecordsid);
 
+            modelBuilder.Entity<StudentRegistrationRecord>()
+                .HasMany(e => e.LoginRecords)
+                .WithOptional(e => e.StudentRegistrationRecord)
+                .HasForeignKey(e => e.studentid);
+
+            modelBuilder.Entity<TeacherRegistrationRecord>()
+                .HasMany(e => e.LoginRecords)
+                .WithOptional(e => e.TeacherRegistrationRecord)
+                .HasForeignKey(e => e.teacherid);
+
             modelBuilder.Entity<TypesOfCours>()
                 .HasMany(e => e.StudentCoursesRegistrationRecords)
                 .WithOptional(e => e.TypesOfCours)

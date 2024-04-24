@@ -18,8 +18,10 @@ namespace CollegeManagementSystem
         private bool isEditMode;
         private string fee;
         protected string _idNumber = "N/A";
-        
+        //protected string _genericPassword = "";
 
+        
+        private StudentWindow studentWindow;
         private ManageArchiveStudentRecords _manageArchiveStudentRecords = null;
         
         
@@ -37,6 +39,7 @@ namespace CollegeManagementSystem
             isEditMode = false;
             _manageArchiveStudentRecords = manageArchiveStudentRecords;
             
+            studentWindow = new StudentWindow();
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
@@ -195,6 +198,12 @@ namespace CollegeManagementSystem
 
                         studentRandomNo = GetStudentId();
 
+
+                        // Generate Default Password 
+                        var studentPassword = studentWindow.studentDefaultPassword;
+                        var generic_password = studentPassword;
+                        var password = Utils.HashPassword(generic_password);
+
                         var studentRegistration = new StudentRegistrationRecord
                         {
                             Name = studentName,
@@ -207,13 +216,38 @@ namespace CollegeManagementSystem
                             TypeOfProgrammeid = (int)cbstudentSRProgramme.SelectedValue
                         };
 
-                        //string studentDefaultPassword = Utils.GenerateRandomPassword();
+                        // stored primary key id
+                        int studentPrimaryKey = studentRegistration.id;
+
+
+                        var loginRecords = new LoginRecord
+                        {
+                            studentid = studentPrimaryKey,
+                            username = studentRandomNo,
+                            password = password,
+
+                            isActive = true
+
+                        };
+
+                        var userRoles = new UserRole
+                        {
+                            userid = studentPrimaryKey,
+                            roleid = 3
+                        };
+
+
+
+                        kCollege_DbEntities.LoginRecords.Add(loginRecords);
+
+                        kCollege_DbEntities.UserRoles.Add(userRoles);
+                        
                         kCollege_DbEntities.StudentRegistrationRecords.Add(studentRegistration);
                         
 
                         
                         MessageBox.Show($"Thanks for your submission.\n" +
-                            $"Name : {studentName}  ID: {studentRandomNo} \n\r" +
+                            $"Name : {studentName}  ID: {studentRandomNo} Default Password: {generic_password}\n\r" +
                             $"Student Phone : {studentPhone}\n\r" +
                             $"Student Email : {studentEmail}\n\r" +
                             $"Student DOB : {studentDOB}\n\r" +
