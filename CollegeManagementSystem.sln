@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeManagementSystem", "CollegeManagementSystem\CollegeManagementSystem.csproj", "{B03430B9-B819-4719-B5B1-3A91E9F6EBC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kUwi_WebForm", "kUwi_WebForm\kUwi_WebForm.csproj", "{5809716D-E032-4422-8E83-A37546690921}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B03430B9-B819-4719-B5B1-3A91E9F6EBC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B03430B9-B819-4719-B5B1-3A91E9F6EBC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B03430B9-B819-4719-B5B1-3A91E9F6EBC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5809716D-E032-4422-8E83-A37546690921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5809716D-E032-4422-8E83-A37546690921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5809716D-E032-4422-8E83-A37546690921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5809716D-E032-4422-8E83-A37546690921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
