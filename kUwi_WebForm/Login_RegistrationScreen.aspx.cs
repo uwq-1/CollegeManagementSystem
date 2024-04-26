@@ -13,5 +13,25 @@ namespace kUwi_WebForm
         {
 
         }
+
+        protected System.Void LoginButton_Click()
+        {
+
+        }
+
+        protected System.Void Lecturer_StudentRadioButtonList_SelectedIndexChanged()
+        {
+
+        }
+
+        protected System.Void RegistrationLinkButton_Click()
+        {
+
+        }
+
+        protected System.Void LecturerPositionDropDownList_SelectedIndexChanged()
+        {
+
+        }
     }
 }
