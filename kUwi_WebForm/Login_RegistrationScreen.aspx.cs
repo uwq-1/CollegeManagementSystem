@@ -11,7 +11,10 @@ namespace kUwi_WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
 
+            }
         }
 
         protected System.Void LoginButton_Click()

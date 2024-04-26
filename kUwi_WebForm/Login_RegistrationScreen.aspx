@@ -29,7 +29,8 @@
         <asp:Label ID="LecturerFirstNameLabel" runat="server" Text="First Name"></asp:Label><asp:TextBox ID="LecturerFirstNameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerLastNameLabel" runat="server" Text="Last Name"></asp:Label><asp:TextBox ID="LecturerLastNameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerPositionLabel" runat="server" Text="Lecturer's Position">
-            </asp:Label><asp:DropDownList ID="LecturerPositionDropDownList" AutoPostBack="true" OnSelectedIndexChanged="LecturerPositionDropDownList_SelectedIndexChanged" runat="server">
+            </asp:Label><asp:DropDownList ID="LecturerPositionDropDownList" AutoPostBack="true" OnSelectedIndexChanged="LecturerPositionDropDownList_SelectedIndexChanged" 
+                runat="server">
                 <asp:ListItem Selected="True" Value="Principal"> Principal</asp:ListItem>
                 <asp:ListItem Value="Head of The ICT Department"> Head of The ICt Department</asp:ListItem>
                 <asp:ListItem Value="Lecturer"> Lecturer</asp:ListItem>
