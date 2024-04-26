@@ -7,28 +7,27 @@ namespace kUwi_WebForm
 {
     public class PersonName
     {
-        private string FirstName;
-        private string LastName;
-        private string MiddleName;
-        private Title[] title;
+        private string firstName;
+        private string lastName;
+        private string middleName;
+        private string title;
 
-{
     public string FirstName
         {
-            get { return FirstName; }
-            set { FirstName = value; }
+            get { return firstName; }
+            set { firstName = value; }
         }
         public string LastName
         {
-            get { return LastName; }
-            set { LastName = ValueTask; }
+            get { return lastName; }
+            set { lastName = value; }
         }
         public string MiddleName
         {
-            get { return MiddleName; }
-            set { MiddleName = value; }
+            get { return middleName; }
+            set { middleName = value; }
         }
-        public Title[] title
+        public string Title
         {
             get { return title; }
             set { title = value; }

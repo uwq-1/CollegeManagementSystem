@@ -14,7 +14,7 @@ namespace kUwi_WebForm
         private string emailAddress;
         private string loginName;
 
-        public string Position
+        public string Position  //Property
         {
             get { return position; } //get method(field) 
             set { position = value; } // set method for the field
@@ -39,7 +39,7 @@ namespace kUwi_WebForm
         }
 
 
-        public Lecturer(PersonName name, string position, string emailAddress)
+        public Lecturer(PersonName name, string position, string emailAddress)//constructor
         {
 
         }
@@ -53,7 +53,7 @@ namespace kUwi_WebForm
         }
         public Courses[] getCourses()
         {
-
+            return courses;
         }
 
 

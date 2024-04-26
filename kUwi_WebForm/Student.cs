@@ -8,24 +8,24 @@ namespace kUwi_WebForm
     public class Student
     {
         private PersonName name;
-        private DateTime DOB;
+        private DateTime dob;
         private string loginName;
         private string emailAddress;
-        private string Program;
+        private Programs[] program ;
         private Courses[] courses;
-        private int Id_num;
+        private int id_num;
         private int intakeYear;
         private Grades grades;
 
         public DateTime DOB
         {
-            get { return DOB; } //get method(field) 
-            set { DOB = value; } // set method for the field
+            get { return dob; } //get method(field) 
+            set { dob = value; } // set method for the field
         }
 
         public int Id_num
         {
-            get { return id_Num; }
+            get { return id_num; }
             protected set { }
         }
 
@@ -42,7 +42,7 @@ namespace kUwi_WebForm
         }
 
 
-        public Student(PersonName name, Program program, string emailAddress)
+        public Student(PersonName name, Programs program, string emailAddress)
         {
 
         }
@@ -52,9 +52,12 @@ namespace kUwi_WebForm
         }
         public Courses[] getCourses()
         {
-
+            return courses;
         }
-        public Program[] GetProgram()
+        public Programs[] GetProgram()
+        {
+            return program;
+        }
     
 }
 
