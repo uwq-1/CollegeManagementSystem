@@ -198,7 +198,6 @@ namespace CollegeManagementSystem
                     var password = Utils.HashPassword(studentDefaultPassword);
 
                     
-
                     var studentRecords = new StudentRegistrationRecord();
                     //studentRecords.id = studentPrimaryKey;
                     studentRecords.Name = studentName;
@@ -217,7 +216,7 @@ namespace CollegeManagementSystem
                         studentid = studentPrimaryKey,
                         username = studentRandomNo,
                         password = password,
-                        
+                        isDefaultPassword = true,
                         isActive = true
                         
                     };

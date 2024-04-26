@@ -47,20 +47,21 @@
             this.tableLayoutPanel1.Controls.Add(this.lblloginName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtloginPassword, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtloginUsername, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(117, 84);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(155, 97);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 309);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(753, 357);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblloginPassword
             // 
             this.lblloginPassword.AutoSize = true;
             this.lblloginPassword.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblloginPassword.Location = new System.Drawing.Point(4, 154);
-            this.lblloginPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblloginPassword.Location = new System.Drawing.Point(6, 178);
+            this.lblloginPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginPassword.Name = "lblloginPassword";
             this.lblloginPassword.Size = new System.Drawing.Size(81, 18);
             this.lblloginPassword.TabIndex = 5;
@@ -70,38 +71,38 @@
             // 
             this.lblloginName.AutoSize = true;
             this.lblloginName.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblloginName.Location = new System.Drawing.Point(4, 0);
-            this.lblloginName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblloginName.Location = new System.Drawing.Point(6, 0);
+            this.lblloginName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginName.Name = "lblloginName";
-            this.lblloginName.Size = new System.Drawing.Size(82, 18);
+            this.lblloginName.Size = new System.Drawing.Size(117, 18);
             this.lblloginName.TabIndex = 4;
-            this.lblloginName.Text = "Username";
+            this.lblloginName.Text = "Username / ID";
             // 
             // txtloginPassword
             // 
-            this.txtloginPassword.Font = new System.Drawing.Font("Marlett", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.txtloginPassword.Location = new System.Drawing.Point(286, 158);
-            this.txtloginPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtloginPassword.Font = new System.Drawing.Font("Marlett", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.txtloginPassword.Location = new System.Drawing.Point(382, 183);
+            this.txtloginPassword.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtloginPassword.Name = "txtloginPassword";
             this.txtloginPassword.PasswordChar = '*';
-            this.txtloginPassword.Size = new System.Drawing.Size(275, 22);
+            this.txtloginPassword.Size = new System.Drawing.Size(365, 23);
             this.txtloginPassword.TabIndex = 6;
             // 
             // txtloginUsername
             // 
-            this.txtloginUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtloginUsername.Location = new System.Drawing.Point(286, 4);
-            this.txtloginUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtloginUsername.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtloginUsername.Location = new System.Drawing.Point(382, 5);
+            this.txtloginUsername.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtloginUsername.Name = "txtloginUsername";
-            this.txtloginUsername.Size = new System.Drawing.Size(275, 23);
+            this.txtloginUsername.Size = new System.Drawing.Size(365, 26);
             this.txtloginUsername.TabIndex = 7;
             // 
             // lblloginTitle
             // 
             this.lblloginTitle.AutoSize = true;
             this.lblloginTitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblloginTitle.Location = new System.Drawing.Point(332, 9);
-            this.lblloginTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblloginTitle.Location = new System.Drawing.Point(442, 10);
+            this.lblloginTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginTitle.Name = "lblloginTitle";
             this.lblloginTitle.Size = new System.Drawing.Size(120, 55);
             this.lblloginTitle.TabIndex = 2;
@@ -110,10 +111,10 @@
             // btnloginSubmit
             // 
             this.btnloginSubmit.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnloginSubmit.Location = new System.Drawing.Point(479, 419);
-            this.btnloginSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnloginSubmit.Location = new System.Drawing.Point(454, 487);
+            this.btnloginSubmit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.btnloginSubmit.Name = "btnloginSubmit";
-            this.btnloginSubmit.Size = new System.Drawing.Size(133, 47);
+            this.btnloginSubmit.Size = new System.Drawing.Size(177, 54);
             this.btnloginSubmit.TabIndex = 13;
             this.btnloginSubmit.Text = "Submit";
             this.btnloginSubmit.UseVisualStyleBackColor = true;
@@ -121,13 +122,16 @@
             // 
             // LoginWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 495);
+            this.ClientSize = new System.Drawing.Size(995, 564);
             this.Controls.Add(this.btnloginSubmit);
             this.Controls.Add(this.lblloginTitle);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Font = new System.Drawing.Font("Lucida Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.Name = "LoginWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login ";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -141,9 +145,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblloginPassword;
         private System.Windows.Forms.Label lblloginName;
-        private System.Windows.Forms.TextBox txtloginUsername;
         private System.Windows.Forms.Label lblloginTitle;
         private System.Windows.Forms.Button btnloginSubmit;
         public System.Windows.Forms.TextBox txtloginPassword;
+        public System.Windows.Forms.TextBox txtloginUsername;
     }
 }

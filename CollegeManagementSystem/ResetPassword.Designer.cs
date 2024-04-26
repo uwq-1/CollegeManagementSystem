@@ -100,6 +100,7 @@
             this.Controls.Add(this.txtresetPassword);
             this.Controls.Add(this.lblresetPassword);
             this.Name = "ResetPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ResetPassword";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,7 +112,7 @@
         private System.Windows.Forms.Label lblresetPassword;
         private System.Windows.Forms.TextBox txtresetPassword;
         private System.Windows.Forms.Label lblresetConfirmPassword;
-        private System.Windows.Forms.TextBox txtresetConfirmPassword;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.TextBox txtresetConfirmPassword;
     }
 }

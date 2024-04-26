@@ -30,17 +30,12 @@ namespace CollegeManagementSystem
             {
                 SHA256 sha = SHA256.Create();
 
-
+                // Get users username and password 
+                // Hash the password after being captured.
                 var username = txtloginUsername.Text.Trim();
                 var password = txtloginPassword.Text;
-
-                //var genericPassword = Utils.GenerateRandomPassword();
-
                 var hashed_password = Utils.HashPassword(password);
 
-
-                //var tuser = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.TeacherRegistrationRecord.Tid == username && q.password == password);
-                //var user = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.username == username && q.password == hashed_password);
 
                 var user = kCollege_DbEntities
                     .LoginRecords
@@ -53,7 +48,7 @@ namespace CollegeManagementSystem
                         q.isActive == true
 
                     );
-
+                
                 if (user == null)
                 {
                     MessageBox.Show("Please provide valid credentials");
@@ -63,13 +58,35 @@ namespace CollegeManagementSystem
                 {
                     var role = user.UserRoles.FirstOrDefault();
                     var roleShortName = role.Role.shortname;
-                    //var login = 
+                    
                     var mainWindow = new MainWindow(this, role, user);
                     mainWindow.Show();
                     Hide();
+
+
+
+                    if (roleShortName == "student")
+                    {
+                        MessageBox.Show($"You have successfully login.\n\r" +
+                            $" Welcome back {user.StudentRegistrationRecord.Name}");
+                    }
+
+                    if (roleShortName == "teacher")
+                    {
+                        MessageBox.Show($"You have successfully login.\n\r" +
+                            $" Welcome back {user.TeacherRegistrationRecord.name}");
+                    }
+
+                    if (roleShortName != "student" && roleShortName != "teacher")
+                    {
+                        // General Message
+                        MessageBox.Show($"You have successfully login.");
+                    }
+
+
                 }
 
-
+                
             }
             catch (Exception)
             {

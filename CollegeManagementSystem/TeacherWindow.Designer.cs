@@ -132,11 +132,11 @@
             // 
             // dtpteacherDateOfBirth
             // 
-            this.dtpteacherDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpteacherDateOfBirth.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpteacherDateOfBirth.Location = new System.Drawing.Point(526, 165);
             this.dtpteacherDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtpteacherDateOfBirth.Name = "dtpteacherDateOfBirth";
-            this.dtpteacherDateOfBirth.Size = new System.Drawing.Size(265, 23);
+            this.dtpteacherDateOfBirth.Size = new System.Drawing.Size(324, 26);
             this.dtpteacherDateOfBirth.TabIndex = 9;
             // 
             // lblteacherSubjectArea
@@ -165,11 +165,12 @@
             // cbteacherSubjectArea
             // 
             this.cbteacherSubjectArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbteacherSubjectArea.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbteacherSubjectArea.FormattingEnabled = true;
             this.cbteacherSubjectArea.Location = new System.Drawing.Point(533, 261);
             this.cbteacherSubjectArea.Margin = new System.Windows.Forms.Padding(4);
             this.cbteacherSubjectArea.Name = "cbteacherSubjectArea";
-            this.cbteacherSubjectArea.Size = new System.Drawing.Size(317, 23);
+            this.cbteacherSubjectArea.Size = new System.Drawing.Size(317, 26);
             this.cbteacherSubjectArea.TabIndex = 13;
             // 
             // lblteacherIdNo

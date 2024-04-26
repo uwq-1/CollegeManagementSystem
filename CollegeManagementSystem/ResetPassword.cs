@@ -39,10 +39,8 @@ namespace CollegeManagementSystem
                 }
 
 
-
-
-
                 user.password = Utils.HashPassword(password);
+                user.isDefaultPassword = false;
                 kCollege_DbEntities.SaveChanges();
                 MessageBox.Show("Password has been reset successfully.");
                 Close();

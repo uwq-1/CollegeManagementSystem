@@ -204,6 +204,13 @@ namespace CollegeManagementSystem
                     else
                     {
                         teacherRandomNo = GetTeacherId();
+
+                        // Generate Default Password 
+                        var defaultPassword = Utils.GenerateRandomPassword();
+                        var generic_password = defaultPassword;
+                        var password = Utils.HashPassword(generic_password);
+
+
                         var teacherRegistration = new TeacherRegistrationRecord 
                         {
                             name = teacherName,
@@ -211,17 +218,45 @@ namespace CollegeManagementSystem
                             phone = teacherPhone,
                             email = teacherEmail,
                             DateOfBirth = teacherDateOfBirth,
+                            TdefaultPassword = password,
 
                             TypesOfMajorSubjectsid = (int)cbteacherSubjectArea.SelectedValue
     
 
                         };
 
+
+                        // stored primary key id
+                        int teacherPrimaryKey = teacherRegistration.id;
+
+                        var loginRecords = new LoginRecord
+                        {
+                            teacherid = teacherPrimaryKey,
+                            username = teacherRandomNo,
+                            password = password,
+                            isDefaultPassword = true,
+                            isActive = true
+
+                        };
+
+                        var userRoles = new UserRole
+                        {
+                            userid = teacherPrimaryKey,
+                            roleid = 2
+                        };
+
+
+
+                        kCollege_DbEntities.LoginRecords.Add(loginRecords);
+
+                        kCollege_DbEntities.UserRoles.Add(userRoles);
+
+
                         kCollege_DbEntities.TeacherRegistrationRecords.Add(teacherRegistration);
 
                         
                         MessageBox.Show($"Thanks for your submission.\n" +
-                        $"Name : {teacherName} ID: {teacherRandomNo} \n\r" +
+                        $"Name : {teacherName} ID: {teacherRandomNo}  Default Password: {generic_password}\n\r" +
                         $"Teacher Phone : {teacherPhone}\n\r" +
                         $"Teacher Email : {teacherEmail}\n\r" +
                         $"Teacher DOB : {teacherDateOfBirth}\n\r" +

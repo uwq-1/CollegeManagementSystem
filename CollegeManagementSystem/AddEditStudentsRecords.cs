@@ -18,10 +18,10 @@ namespace CollegeManagementSystem
         private bool isEditMode;
         private string fee;
         protected string _idNumber = "N/A";
-        //protected string _genericPassword = "";
+        
 
         
-        private StudentWindow studentWindow;
+        
         private ManageArchiveStudentRecords _manageArchiveStudentRecords = null;
         
         
@@ -39,7 +39,7 @@ namespace CollegeManagementSystem
             isEditMode = false;
             _manageArchiveStudentRecords = manageArchiveStudentRecords;
             
-            studentWindow = new StudentWindow();
+            
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
@@ -200,8 +200,8 @@ namespace CollegeManagementSystem
 
 
                         // Generate Default Password 
-                        var studentPassword = studentWindow.studentDefaultPassword;
-                        var generic_password = studentPassword;
+                        var defaultPassword = Utils.GenerateRandomPassword();
+                        var generic_password = defaultPassword;
                         var password = Utils.HashPassword(generic_password);
 
                         var studentRegistration = new StudentRegistrationRecord
@@ -212,6 +212,7 @@ namespace CollegeManagementSystem
                             Email = studentEmail,
                             Stution = studentTution,
                             DateOfBirth = studentDOB,
+                            SdefaultPassword = password,
 
                             TypeOfProgrammeid = (int)cbstudentSRProgramme.SelectedValue
                         };
@@ -225,7 +226,7 @@ namespace CollegeManagementSystem
                             studentid = studentPrimaryKey,
                             username = studentRandomNo,
                             password = password,
-
+                            isDefaultPassword = true,
                             isActive = true
 
                         };

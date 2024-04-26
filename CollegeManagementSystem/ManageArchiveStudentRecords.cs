@@ -65,6 +65,7 @@ namespace CollegeManagementSystem
 
                 // query database  for record
                 var records = kCollege_DbEntities.StudentRegistrationRecords.FirstOrDefault(q => q.id == id);
+                
 
                 DialogResult dr = MessageBox.Show($"Are you sure you want to DELETE THIS RECORD:" +
                     $" Name : {records.Name}  SID : {records.Sid}\n\r ?",
@@ -73,8 +74,8 @@ namespace CollegeManagementSystem
 
                 if (dr == DialogResult.Yes)
                 {
-                    
-                    // delete students records from database
+
+                    // delete records from database
                     kCollege_DbEntities.StudentRegistrationRecords.Remove(records);
                     kCollege_DbEntities.SaveChanges();
                     

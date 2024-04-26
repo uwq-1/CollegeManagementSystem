@@ -33,6 +33,7 @@
             this.btnresetPassword = new System.Windows.Forms.Button();
             this.gvUserSettingsRecords = new System.Windows.Forms.DataGridView();
             this.lbluserCRTitle = new System.Windows.Forms.Label();
+            this.btndeleteUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvUserSettingsRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +92,24 @@
             this.lbluserCRTitle.TabIndex = 21;
             this.lbluserCRTitle.Text = "Users Control";
             // 
+            // btndeleteUser
+            // 
+            this.btndeleteUser.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndeleteUser.Location = new System.Drawing.Point(32, 44);
+            this.btndeleteUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btndeleteUser.Name = "btndeleteUser";
+            this.btndeleteUser.Size = new System.Drawing.Size(205, 47);
+            this.btndeleteUser.TabIndex = 26;
+            this.btndeleteUser.Text = "Delete User";
+            this.btndeleteUser.UseVisualStyleBackColor = true;
+            this.btndeleteUser.Click += new System.EventHandler(this.btndeleteUser_Click);
+            // 
             // ManageUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 503);
+            this.Controls.Add(this.btndeleteUser);
             this.Controls.Add(this.btnaddUser);
             this.Controls.Add(this.btndeativateUser);
             this.Controls.Add(this.btnresetPassword);
@@ -117,5 +131,6 @@
         private System.Windows.Forms.Button btnresetPassword;
         private System.Windows.Forms.DataGridView gvUserSettingsRecords;
         private System.Windows.Forms.Label lbluserCRTitle;
+        private System.Windows.Forms.Button btndeleteUser;
     }
 }

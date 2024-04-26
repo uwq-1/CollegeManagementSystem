@@ -13,7 +13,11 @@ namespace CollegeManagementSystem
 {
     public partial class ManageCourseRecords : Form
     {
-        
+
+        public string _roleName;
+
+        public UserRole _role = null;
+
         private readonly KUniversityDbModel kCollege_DbEntities;
 
         public ManageCourseRecords()
@@ -22,11 +26,39 @@ namespace CollegeManagementSystem
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
+
+        public ManageCourseRecords(UserRole role = null)
+        {
+            InitializeComponent();
+            _role = role;
+            _roleName = role.LoginRecord.UserRoles.FirstOrDefault().Role.shortname;
+            kCollege_DbEntities = new KUniversityDbModel();
+        }
+
         private void ManageCourseRecords_Load(object sender, EventArgs e)
         {
             try
             {
                 PopulateGrid();
+
+                if (_roleName != "admin")
+                {
+                    // Add Records
+                    btnaddCRecords.Hide();
+                    btnaddCRecords.Visible = false;
+                    btnaddCRecords.Enabled = false;
+
+                    // Edit Records
+                    btneditCRecords.Hide();
+                    btneditCRecords.Visible = false;
+                    btneditCRecords.Enabled = false;
+
+                    // Delete Records
+                    btndeleteCRecords.Hide();
+                    btndeleteCRecords.Visible = false;
+                    btndeleteCRecords.Enabled = false;
+                }
+
             }
             catch (Exception ex)
             {

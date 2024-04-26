@@ -36,17 +36,17 @@
             this.gradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentsGradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStudentsGradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewAllCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProgrammesListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStudentsProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitSystemToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.teacherSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTeacherRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitSystemToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblmainKiwa = new System.Windows.Forms.Label();
             this.lblmainUniversity = new System.Windows.Forms.Label();
@@ -61,11 +61,11 @@
             this.menuMainStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.admissionsToolStripMenuItem,
             this.gradesToolStripMenuItem,
-            this.studentToolStripMenuItem,
-            this.teacherToolStripMenuItem,
-            this.exitSystemToolStripMenuItem1,
+            this.studentCourseToolStripMenuItem,
+            this.studentDetailsToolStripMenuItem,
+            this.teacherSystemToolStripMenuItem,
             this.manageUsersToolStripMenuItem,
-            this.exitSystemToolStripMenuItem2});
+            this.exitSystemToolStripMenuItem});
             this.menuMainStrip.Location = new System.Drawing.Point(0, 0);
             this.menuMainStrip.Name = "menuMainStrip";
             this.menuMainStrip.Size = new System.Drawing.Size(872, 87);
@@ -124,43 +124,43 @@
             this.viewStudentsGradesToolStripMenuItem.Text = "View Student\'s Grades";
             this.viewStudentsGradesToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsGradesToolStripMenuItem_Click);
             // 
-            // studentToolStripMenuItem
+            // studentCourseToolStripMenuItem
             // 
-            this.studentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewCourseToolStripMenuItem,
+            this.studentCourseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCourseToolStripMenuItem,
             this.viewAllCourseToolStripMenuItem});
-            this.studentToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentToolStripMenuItem.Image")));
-            this.studentToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(72, 83);
-            this.studentToolStripMenuItem.Text = "Course ";
-            this.studentToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.studentCourseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentCourseToolStripMenuItem.Image")));
+            this.studentCourseToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.studentCourseToolStripMenuItem.Name = "studentCourseToolStripMenuItem";
+            this.studentCourseToolStripMenuItem.Size = new System.Drawing.Size(72, 83);
+            this.studentCourseToolStripMenuItem.Text = "Course ";
+            this.studentCourseToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
-            // viewCourseToolStripMenuItem
+            // addCourseToolStripMenuItem
             // 
-            this.viewCourseToolStripMenuItem.Name = "viewCourseToolStripMenuItem";
-            this.viewCourseToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
-            this.viewCourseToolStripMenuItem.Text = "Add Course ";
-            this.viewCourseToolStripMenuItem.Click += new System.EventHandler(this.viewCourseToolStripMenuItem_Click);
+            this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.addCourseToolStripMenuItem.Text = "Add Course ";
+            this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.viewCourseToolStripMenuItem_Click);
             // 
             // viewAllCourseToolStripMenuItem
             // 
             this.viewAllCourseToolStripMenuItem.Name = "viewAllCourseToolStripMenuItem";
-            this.viewAllCourseToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.viewAllCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.viewAllCourseToolStripMenuItem.Text = "View  Course";
             this.viewAllCourseToolStripMenuItem.Click += new System.EventHandler(this.viewAllCourseToolStripMenuItem_Click);
             // 
-            // teacherToolStripMenuItem
+            // studentDetailsToolStripMenuItem
             // 
-            this.teacherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.studentDetailsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewProgrammesListToolStripMenuItem,
             this.viewStudentsProfileToolStripMenuItem});
-            this.teacherToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("teacherToolStripMenuItem.Image")));
-            this.teacherToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(114, 83);
-            this.teacherToolStripMenuItem.Text = "Student Details";
-            this.teacherToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.studentDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentDetailsToolStripMenuItem.Image")));
+            this.studentDetailsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.studentDetailsToolStripMenuItem.Name = "studentDetailsToolStripMenuItem";
+            this.studentDetailsToolStripMenuItem.Size = new System.Drawing.Size(114, 83);
+            this.studentDetailsToolStripMenuItem.Text = "Student Details";
+            this.studentDetailsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // viewProgrammesListToolStripMenuItem
             // 
@@ -176,21 +176,21 @@
             this.viewStudentsProfileToolStripMenuItem.Text = "View Students Profile";
             this.viewStudentsProfileToolStripMenuItem.Click += new System.EventHandler(this.viewStudentsProfileToolStripMenuItem_Click);
             // 
-            // exitSystemToolStripMenuItem1
+            // teacherSystemToolStripMenuItem
             // 
-            this.exitSystemToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teacherSystemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewTeacherRToolStripMenuItem});
-            this.exitSystemToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exitSystemToolStripMenuItem1.Image")));
-            this.exitSystemToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.exitSystemToolStripMenuItem1.Name = "exitSystemToolStripMenuItem1";
-            this.exitSystemToolStripMenuItem1.Size = new System.Drawing.Size(72, 83);
-            this.exitSystemToolStripMenuItem1.Text = "Teacher";
-            this.exitSystemToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.teacherSystemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("teacherSystemToolStripMenuItem.Image")));
+            this.teacherSystemToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.teacherSystemToolStripMenuItem.Name = "teacherSystemToolStripMenuItem";
+            this.teacherSystemToolStripMenuItem.Size = new System.Drawing.Size(72, 83);
+            this.teacherSystemToolStripMenuItem.Text = "Teacher";
+            this.teacherSystemToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // viewTeacherRToolStripMenuItem
             // 
             this.viewTeacherRToolStripMenuItem.Name = "viewTeacherRToolStripMenuItem";
-            this.viewTeacherRToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.viewTeacherRToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.viewTeacherRToolStripMenuItem.Text = "View Teacher";
             this.viewTeacherRToolStripMenuItem.Click += new System.EventHandler(this.viewTeacherRToolStripMenuItem_Click);
             // 
@@ -208,25 +208,25 @@
             // userSettingsToolStripMenuItem
             // 
             this.userSettingsToolStripMenuItem.Name = "userSettingsToolStripMenuItem";
-            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.userSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.userSettingsToolStripMenuItem.Text = "User Settings";
             this.userSettingsToolStripMenuItem.Click += new System.EventHandler(this.userSettingsToolStripMenuItem_Click);
             // 
-            // exitSystemToolStripMenuItem2
+            // exitSystemToolStripMenuItem
             // 
-            this.exitSystemToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitSystemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
-            this.exitSystemToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("exitSystemToolStripMenuItem2.Image")));
-            this.exitSystemToolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.exitSystemToolStripMenuItem2.Name = "exitSystemToolStripMenuItem2";
-            this.exitSystemToolStripMenuItem2.Size = new System.Drawing.Size(90, 83);
-            this.exitSystemToolStripMenuItem2.Text = "Exit System";
-            this.exitSystemToolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.exitSystemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitSystemToolStripMenuItem.Image")));
+            this.exitSystemToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.exitSystemToolStripMenuItem.Name = "exitSystemToolStripMenuItem";
+            this.exitSystemToolStripMenuItem.Size = new System.Drawing.Size(90, 83);
+            this.exitSystemToolStripMenuItem.Text = "Exit System";
+            this.exitSystemToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.exitToolStripMenuItem.Text = "Exit ";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -302,17 +302,17 @@
         private System.Windows.Forms.ToolStripMenuItem studentsGradesToolStripMenuItem;
         private System.Windows.Forms.Label lblmainUniversity;
         private System.Windows.Forms.ToolStripMenuItem teachersRegisterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teacherToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem studentCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem teacherSystemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewTeacherRToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewAllCourseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewStudentsGradesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewProgrammesListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewStudentsProfileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageUsersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem exitSystemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userSettingsToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;

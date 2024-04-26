@@ -17,6 +17,9 @@ namespace CollegeManagementSystem
     {
         string teacherBlank = "";
         protected string _idNumber = "N/A";
+        protected string _genericPassword = "";
+        public string teacherDefaultPassword;
+
 
         private readonly KUniversityDbModel kCollege_DbEntities;
 
@@ -37,6 +40,12 @@ namespace CollegeManagementSystem
         public string GetTeacherId()
         {
             return _idNumber = GetRandomNumber();
+        }
+
+
+        public string GetTeacherPassword()
+        {
+            return _genericPassword = Utils.GenerateRandomPassword();
         }
 
         private void teacherResetButton()
@@ -81,7 +90,7 @@ namespace CollegeManagementSystem
             return Regex.IsMatch(email, pattern);
         }
 
-        private async void btnteacherSubmit_Click(object sender, EventArgs e)
+        private void btnteacherSubmit_Click(object sender, EventArgs e)
         {
             try
             {
@@ -97,23 +106,25 @@ namespace CollegeManagementSystem
                 var errorMessage = "";
 
                 string teacherRandomNo = lblteacherRandomNumber.Text;
-                
+
 
 
 
                 if (string.IsNullOrWhiteSpace(teacherName) || string.IsNullOrWhiteSpace(teacherSubjectArea))
                 {
                     isValid = false;
+                    teacherDefaultPassword = "";
                     lblteacherRandomNumber.ResetText();
                     errorMessage += "Error : Please enter missing data.\n\r";
                     txtteacherName.Focus();
-                    
+
                 }
 
                 if (string.IsNullOrEmpty(teacherPhone) || string.IsNullOrEmpty(teacherEmail))
                 {
                     isValid = false;
                     isValidEmail(teacherEmail);
+                    teacherDefaultPassword = "";
                     lblteacherRandomNumber.ResetText();
                     errorMessage += "Error : Please enter correct information.\n\r";
                 }
@@ -123,30 +134,61 @@ namespace CollegeManagementSystem
                 {
                     isValid = false;
                     errorMessage += "Error : Phone number should contain only numbers or 10 digits.\n\r";
-                    
+
                 }
 
                 if (isValid == true)
                 {
                     teacherRandomNo = GetTeacherId();
+                    // Generate Default Password 
+                    teacherDefaultPassword = GetTeacherPassword();
+                    var generic_password = teacherDefaultPassword;
+                    var password = Utils.HashPassword(teacherDefaultPassword);
+
+
                     var teacherRecords = new TeacherRegistrationRecord();
                     teacherRecords.name = teacherName;
                     teacherRecords.Tid = teacherRandomNo;
                     teacherRecords.phone = teacherPhone;
                     teacherRecords.email = teacherEmail;
-                    //teacherRecords.TypesOfMajorSubject = teacherSubjectArea;
+
                     teacherRecords.DateOfBirth = teacherDateOfBirth;
+                    teacherRecords.TdefaultPassword = password;
 
                     teacherRecords.TypesOfMajorSubjectsid = (int)cbteacherSubjectArea.SelectedValue;
 
-                    
+                    // stored primary key id
+                    int teacherPrimaryKey = teacherRecords.id;
+
+                    var loginRecords = new LoginRecord
+                    {
+                        teacherid = teacherPrimaryKey,
+                        username = teacherRandomNo,
+                        password = password,
+                        isDefaultPassword = true,
+                        isActive = true
+
+                    };
+
+                    var userRoles = new UserRole
+                    {
+                        userid = teacherPrimaryKey,
+                        roleid = 2
+                    };
+
+
+
+                    kCollege_DbEntities.LoginRecords.Add(loginRecords);
+
+                    kCollege_DbEntities.UserRoles.Add(userRoles);
+
 
                     kCollege_DbEntities.TeacherRegistrationRecords.Add(teacherRecords);
                     kCollege_DbEntities.SaveChanges();
 
 
                     MessageBox.Show($"Thanks for your submission.\n" +
-                    $"Name : {teacherName} ID: {teacherRandomNo} \n\r" +
+                    $"Name : {teacherName} ID: {teacherRandomNo} Default Password: {generic_password} \n\r" +
                     $"Teacher Phone : {teacherPhone}\n\r" +
                     $"Teacher Email : {teacherEmail}\n\r" +
                     $"Teacher DOB : {teacherDateOfBirth}\n\r" +
@@ -161,10 +203,10 @@ namespace CollegeManagementSystem
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
-        
+
 
         private void btnteacherClear_Click(object sender, EventArgs e)
         {
@@ -175,7 +217,6 @@ namespace CollegeManagementSystem
         {
             // Select * from TypesOfMajorSubjects
             
-
             var teacherrecords = kCollege_DbEntities
                 .TypesOfMajorSubjects
                 .ToList();

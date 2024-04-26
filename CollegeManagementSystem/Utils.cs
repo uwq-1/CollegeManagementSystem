@@ -12,8 +12,6 @@ namespace CollegeManagementSystem
     public static class Utils
     {
 
-        public static StudentRegistrationRecord studentRegistration;
-        public static StudentWindow studentWindow;
 
         public static bool FormIsOpen(string name)
         {

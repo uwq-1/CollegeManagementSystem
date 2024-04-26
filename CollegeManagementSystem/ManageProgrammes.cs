@@ -13,6 +13,12 @@ namespace CollegeManagementSystem
 {
     public partial class ManageProgrammes : Form
     {
+
+        public string _roleName;
+
+        public UserRole _role = null;
+
+
         private readonly KUniversityDbModel kCollege_DbEntities;
 
         public ManageProgrammes()
@@ -21,11 +27,39 @@ namespace CollegeManagementSystem
             kCollege_DbEntities = new KUniversityDbModel();
         }
 
+        public ManageProgrammes(UserRole role = null)
+        {
+            InitializeComponent();
+            _role = role;
+            _roleName = role.LoginRecord.UserRoles.FirstOrDefault().Role.shortname;
+            kCollege_DbEntities = new KUniversityDbModel();
+        }
+
         private void ManageProgrammes_Load(object sender, EventArgs e)
         {
             try
             {
                 PopulateGrid();
+
+                if (_roleName != "admin")
+                {
+                    // Add Records
+                    btnaddProgramme.Hide();
+                    btnaddProgramme.Visible = false;
+                    btnaddProgramme.Enabled = false;
+
+                    // Edit Records
+                    btneditProgramme.Hide();
+                    btneditProgramme.Visible = false;
+                    btneditProgramme.Enabled = false;
+
+                    // Delete Records
+                    btndeleteProgramme.Hide();
+                    btndeleteProgramme.Visible = false;
+                    btndeleteProgramme.Enabled = false;
+                }
+
+
             }
             catch (Exception ex)
             {

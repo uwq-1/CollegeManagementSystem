@@ -46,15 +46,18 @@ namespace CollegeManagementSystem
             {
                 var username = txtaddUserName.Text;
                 var roleId = (int)cbRoles.SelectedValue;
+
+
                 var genericPassword = Utils.GenerateRandomPassword();
-                //var password = Utils.DefaultHashedPassword(genericPassword);
-                
                 var password = Utils.HashPassword(genericPassword);
+
+
                 var user = new LoginRecord
                 {
                     //LoginRecord
                     username = username,
                     password = password,
+                    isDefaultPassword = true,
                     isActive = true
                 };
 
@@ -68,16 +71,16 @@ namespace CollegeManagementSystem
                     roleid = roleid
                 };
 
-                
+
                 kCollege_DbEntities.UserRoles.Add(userRoles);
 
                 kCollege_DbEntities.LoginRecords.Add(user);
 
                 kCollege_DbEntities.SaveChanges();
 
-                MessageBox.Show("User successfully created!");
+                MessageBox.Show("User successfully created!\n\r" +
+                    $"User default password is  {genericPassword} ");
                 _manageUser.PopulateGrid();
-                MessageBox.Show($"User default password is  {genericPassword} ");
                 Close();
             }
             catch (Exception)

@@ -69,9 +69,9 @@
             this.lbldegreePProgramme.Location = new System.Drawing.Point(4, 0);
             this.lbldegreePProgramme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbldegreePProgramme.Name = "lbldegreePProgramme";
-            this.lbldegreePProgramme.Size = new System.Drawing.Size(137, 18);
+            this.lbldegreePProgramme.Size = new System.Drawing.Size(150, 18);
             this.lbldegreePProgramme.TabIndex = 4;
-            this.lbldegreePProgramme.Text = "Degree Programe";
+            this.lbldegreePProgramme.Text = "Degree Programme";
             // 
             // btnsavePChanges
             // 

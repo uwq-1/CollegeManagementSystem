@@ -30,6 +30,8 @@ namespace CollegeManagementSystem.Database
 
         public int? teacherid { get; set; }
 
+        public bool? isDefaultPassword { get; set; }
+
         public virtual StudentRegistrationRecord StudentRegistrationRecord { get; set; }
 
         public virtual TeacherRegistrationRecord TeacherRegistrationRecord { get; set; }

@@ -311,6 +311,7 @@
     <Content Include="Data\Scripts\KCollege_db_changes_09.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_10.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_11.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_12.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

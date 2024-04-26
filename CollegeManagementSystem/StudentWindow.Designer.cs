@@ -146,11 +146,11 @@
             // 
             // dtpstudentDateOfBirth
             // 
-            this.dtpstudentDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpstudentDateOfBirth.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpstudentDateOfBirth.Location = new System.Drawing.Point(430, 157);
             this.dtpstudentDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtpstudentDateOfBirth.Name = "dtpstudentDateOfBirth";
-            this.dtpstudentDateOfBirth.Size = new System.Drawing.Size(265, 23);
+            this.dtpstudentDateOfBirth.Size = new System.Drawing.Size(317, 26);
             this.dtpstudentDateOfBirth.TabIndex = 15;
             // 
             // lblstudentProgramme
@@ -167,11 +167,12 @@
             // cbstudentProgramme
             // 
             this.cbstudentProgramme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstudentProgramme.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbstudentProgramme.FormattingEnabled = true;
             this.cbstudentProgramme.Location = new System.Drawing.Point(430, 252);
             this.cbstudentProgramme.Margin = new System.Windows.Forms.Padding(4);
             this.cbstudentProgramme.Name = "cbstudentProgramme";
-            this.cbstudentProgramme.Size = new System.Drawing.Size(317, 21);
+            this.cbstudentProgramme.Size = new System.Drawing.Size(317, 26);
             this.cbstudentProgramme.TabIndex = 17;
             // 
             // lblstudentIdNo

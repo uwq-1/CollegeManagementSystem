@@ -17,9 +17,6 @@ namespace CollegeManagementSystem
         private LoginRecord _loginRecord;
 
 
-        private StudentRegistrationRecord _studentRegistration;
-
-
         private LoginWindow _login;
         public string _roleName;
         
@@ -27,7 +24,7 @@ namespace CollegeManagementSystem
 
         //public UserRole userRole;
 
-
+        
         private readonly KUniversityDbModel kCollege_DbEntities;
 
 
@@ -35,6 +32,7 @@ namespace CollegeManagementSystem
         public MainWindow()
         {
             InitializeComponent();
+            kCollege_DbEntities = new KUniversityDbModel();
             //lblmainKiwa.BackColor = Color.White;    
             lblmainKiwa.BackColor = System.Drawing.Color.Transparent;
             lblmainUniversity.BackColor = System.Drawing.Color.Transparent;
@@ -47,7 +45,7 @@ namespace CollegeManagementSystem
             _role = role;
             _loginRecord = loginRecord;
             _roleName = role.LoginRecord.UserRoles.FirstOrDefault().Role.shortname;
-            
+            kCollege_DbEntities = new KUniversityDbModel();
 
         }
 
@@ -63,14 +61,17 @@ namespace CollegeManagementSystem
                 studentsWindows.Show();
             }
 
-            /*var OpenForms = Application.OpenForms.Cast<Form>();
+            /*
+            var OpenForms = Application.OpenForms.Cast<Form>();
             var isOpen = OpenForms.Any(q => q.Name == "StudentWindow");
             if (!isOpen)
             {
                 var studentsWindows = new StudentWindow();
                 studentsWindows.MdiParent = this;
                 studentsWindows.Show();
-            }*/
+            }
+            */
+
         }
 
         private void teachersRegisterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,7 +113,9 @@ namespace CollegeManagementSystem
 
             if (!Utils.FormIsOpen("ManageCourseRecords"))
             {
-                var manageCourseRecords = new ManageCourseRecords();
+                var role = _role.LoginRecord.UserRoles.FirstOrDefault();
+
+                var manageCourseRecords = new ManageCourseRecords(role);
                 manageCourseRecords.MdiParent = this;
                 manageCourseRecords.Show();
             }
@@ -124,7 +127,9 @@ namespace CollegeManagementSystem
 
             if (!Utils.FormIsOpen("ManageProgrammes"))
             {
-                var manageProgrammes = new ManageProgrammes();
+                var role = _role.LoginRecord.UserRoles.FirstOrDefault();
+
+                var manageProgrammes = new ManageProgrammes(role);
                 manageProgrammes.MdiParent = this;
                 manageProgrammes.Show();
             }
@@ -150,7 +155,10 @@ namespace CollegeManagementSystem
 
             if (!Utils.FormIsOpen("ManageGradesRecords"))
             {
-                var studentDetails = new ManageGradesRecords();
+                var role = _role.LoginRecord.UserRoles.FirstOrDefault();
+                
+
+                var studentDetails = new ManageGradesRecords(role);
                 studentDetails.MdiParent = this;
                 studentDetails.Show();
             }
@@ -196,35 +204,45 @@ namespace CollegeManagementSystem
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
-
             // Getting user password
-            
-
             var user_Password = _login.txtloginPassword.Text;
-            var old_Password_hash = _loginRecord.password;
-
-
+            
 
             // Get hash password
-
-            //var spasswd = "";
-
-
-            
-            //var hashed_password = Utils.DefaultHashedPassword(user_Password);
-            //var genericPassword = user_Password;
-            var genericPassword = Utils.GenerateRandomPassword();
+            var genericPassword = user_Password;
             var hashed_password = Utils.DefaultHashedPassword(genericPassword);
 
-            //var userpassword = _loginRecord.password;
+            var txtusername = _login.txtloginUsername.Text.Trim();
+
+            var user = kCollege_DbEntities
+                    .LoginRecords
+                    .FirstOrDefault(q =>
+
+                        q.username == txtusername
+                        &&
+                        q.password == hashed_password
+                        &&
+                        q.isActive == true
+
+                    );
+
+
             var userpassword = _role.LoginRecord.password;
 
             if (userpassword == hashed_password)
             {
-                var resetPassword = new ResetPassword(_loginRecord);
-                resetPassword.ShowDialog();
-            }
 
+                if ((bool)user.isDefaultPassword)
+                {
+                    var resetPassword = new ResetPassword(_loginRecord);
+                    resetPassword.ShowDialog();
+
+                }
+
+
+            }
+            user.isDefaultPassword = false;
+            kCollege_DbEntities.SaveChanges();
 
             var username = _role.LoginRecord.username;
             
@@ -233,6 +251,29 @@ namespace CollegeManagementSystem
             if (_roleName != "admin")
             {
                 manageUsersToolStripMenuItem.Visible = false;
+                studentsGradesToolStripMenuItem.Visible = false;
+                addCourseToolStripMenuItem.Visible = false;
+            }
+
+            if (_roleName == "view" || _roleName == "student")
+            {
+                teacherSystemToolStripMenuItem.Visible = false;
+                viewStudentsProfileToolStripMenuItem.Visible = false;
+                teachersRegisterToolStripMenuItem.Visible = false;
+            }
+
+            if (_roleName == "view")
+            {
+                gradesToolStripMenuItem.Visible = false;
+
+            }
+
+
+            if (_roleName == "teacher")
+            {
+                admissionsToolStripMenuItem.Visible = false;
+                teacherSystemToolStripMenuItem.Visible = false;
+                viewStudentsProfileToolStripMenuItem.Visible = false;
             }
 
 
