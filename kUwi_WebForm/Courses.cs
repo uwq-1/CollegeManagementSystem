@@ -7,36 +7,36 @@ namespace kUwi_WebForm
 {
     public class Courses
     {
-        private string CourseName;
-        private string CourseId;
-        private string Lecturer;
-        private string Description;
-        private int Semester;
+        private string courseName;
+        private string courseId;
+        private string lecturer;
+        private string description;
+        private int semester;
 
         public string CourseName
         {
-            get { return CourseName; }
-            set { CourseName = value; }
+            get { return courseName; }
+            set { courseName = value; }
         }
         public string CourseId
         {
-            get { return CourseId; }
-            set { CourseId = value}
+            get { return courseId; }
+            set { courseId = value;  }
         }
         public string Lecturer
         {
-            get { return Lecturer; }
-            set { Lecturer = value:}
+            get { return lecturer; }
+            set { lecturer = value; }
         }
         public string Description
         {
-            get { return Description; }
-            set { Description = value; }
+            get { return description; }
+            set { description = value; }
         }
         public int Semester
         {
-            get { return Semester; }
-            set { Semester = value; }
+            get { return semester; }
+            set { semester = value; }
         }
     }
 

@@ -8,67 +8,76 @@ namespace kUwi_WebForm
     public class Grades
     {
         private Courses[] courses;
-        private StudentName studentName;// Ask vhas if both student name and lecturer name
-        private LecturerName lecturerName;// work with this
-        private string CourseId; //ask vhas if this should be an array?
-        private int StudentId_Num;
-        private string Comments;
-        private float Grade;
+        private Student student;// Ask vhas if both student name and lecturer name
+        private Lecturer lecturer;// work with this
+        private string courseId; //ask vhas if this should be an array?
+        private int studentId_Num;
+        private string comments;
+        private float grade;
+        private Programs [] program;
 
-        public Courses[] courses
+        public Courses[] Courses
         {
             get { return courses; } //get method(field) 
             set { courses = value; } // set method for the field
         }
 
-        public string StudentName
+        public Student Student
         {
-            get { return i; }
+            get { return student; }
             protected set { }
         }
 
-        public string LecturerName
+        public Lecturer Lecturer
         {
-            get { return; }
-            set { = value; }
+            get { return lecturer; }
+            protected set { }
         }
 
         public string CourseId
         {
-            get { return CourseId; }
-            set { CourseId = value; }
+            get { return courseId; }
+            set { courseId = value; }
         }
         public int StudentId_Num
         {
-            get { return StudentId_Num; }
-            protected set { StudentId_Num = value; }
+            get { return studentId_Num; }
+            protected set { studentId_Num = value; }
         }
         public string Comments
         {
-            get { return Comments; }
-            set { Comments = value; }
+            get { return comments; }
+            set { comments = value; }
         }
         public float Grade
         {
-            get { return Grade; }
-            set { Grade = value; }
+            get { return grade; }
+            set { grade = value; }
         }
-
-        public StudentName(PersonName name)
+        public Grades ()
         {
 
+        }
+        public Student GetStudent(PersonName name)
+        {
+            return student;
         }
         public void updateGrade()
         {
 
         }
         public void updateComments()
-
-    public Courses[] getCourses()
-        {
-
+        { 
         }
-        public Program[] GetProgram()
+
+        public Courses[] GetCourses()
+        {
+            return courses;
+        }
+        public Programs[] GetProgram()
+        {
+            return program;
+        }
 
 }
 
