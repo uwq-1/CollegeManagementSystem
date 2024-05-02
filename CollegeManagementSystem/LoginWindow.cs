@@ -14,7 +14,7 @@ namespace CollegeManagementSystem
 {
     public partial class LoginWindow : Form
     {
-
+        
         private readonly KUniversityDbModel kCollege_DbEntities;
 
         public LoginWindow()
@@ -52,7 +52,7 @@ namespace CollegeManagementSystem
                 if (user == null)
                 {
                     MessageBox.Show("Please provide valid credentials");
-                    
+
                 }
                 else
                 {
