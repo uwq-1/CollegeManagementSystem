@@ -12,8 +12,22 @@ namespace kUwi_WebForm
     {
         private string userName = string.Empty;//defined variables
         private string password = string.Empty;
-        private string studentName = string.Empty;
-
+        private string studentFirstName = string.Empty;
+        private string studentLastName = string.Empty;
+        private string studentEmail = string.Empty;
+        private string studentEmailverified = string.Empty;
+        private string dob = string.Empty;//how do I get this to be a calender format or datetime?
+        private string studentPassword = string.Empty;
+        private string studentPasswordverified = string.Empty;
+        private string lecturerFirstName = string.Empty;
+        private string lecturerLastName = string.Empty;
+        private string lecturerPosition = string.Empty;
+        private string lecturerEmail = string.Empty;
+        private bool lecturerEmailVerified = false;//ask vhas if this can work for this screen or just for the login section
+        private string lecturerPassword = string.Empty;
+        private string lecturerPasswordverified = string.Empty; // or if i should put the verified on the password field. I think i know the answer to this because I should only be collecting data here.
+        private protected int studentId_num = 0;//also ask is what is writen here can work
+        private protected int  lecturerId_num = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
