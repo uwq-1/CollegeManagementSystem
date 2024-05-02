@@ -12,14 +12,14 @@ namespace kUwi_WebForm
         private string loginName;
         private string emailAddress;
         private Programs[] program ;
-        private Courses[] courses;
+       // private Courses[] courses;
         private int id_num;
         private int intakeYear;
         private Grades grades;
 
         public DateTime DOB
         {
-            get { return dob; } //get method(field) 
+            get { return dob; } //get method(field)C
             set { dob = value; } // set method for the field
         }
 
@@ -50,10 +50,10 @@ namespace kUwi_WebForm
         {
 
         }
-        public Courses[] getCourses()
+        /*public Courses[] getCourses()
         {
             return courses;
-        }
+        }*/
         public Programs[] GetProgram()
         {
             return program;

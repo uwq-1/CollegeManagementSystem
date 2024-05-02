@@ -15,17 +15,19 @@ namespace kUwi_WebForm
         private string studentFirstName = string.Empty;
         private string studentLastName = string.Empty;
         private string studentEmail = string.Empty;
-        private string studentEmailverified = string.Empty;
-        private string dob = string.Empty;//how do I get this to be a calender format or datetime?
+        private string studentEmailConfirmation;
+        private DateTime studentDOB;
         private string studentPassword = string.Empty;
-        private string studentPasswordverified = string.Empty;
+        private string studentPasswordConfirmation;
+        private string studentProgramme;
         private string lecturerFirstName = string.Empty;
         private string lecturerLastName = string.Empty;
         private string lecturerPosition = string.Empty;
-        private string lecturerEmail = string.Empty;
-        private bool lecturerEmailVerified = false;//ask vhas if this can work for this screen or just for the login section
+        private string lecturerEmail;
+        private string lecturerEmailConfirmation;
         private string lecturerPassword = string.Empty;
-        private string lecturerPasswordverified = string.Empty; // or if i should put the verified on the password field. I think i know the answer to this because I should only be collecting data here.
+        private string lecturerPasswordConfirmation;
+        private string captchaCode;
         private protected int studentId_num = 0;//also ask is what is writen here can work
         private protected int  lecturerId_num = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -50,6 +52,7 @@ namespace kUwi_WebForm
             Registration.Visible = false;
             StudentRegistrationPanel.Visible = false;
             LecturerRegistrationPanel.Visible = false;
+            //StudentErrorLabel.Visible = false;
 
         }
 
@@ -109,11 +112,43 @@ namespace kUwi_WebForm
         protected void StudentSubmitButton_Click(object sender, EventArgs e)
         {
             //submit the student registration information
+
+            studentFirstName = StudentFirstNameTextBox.Text;
+            studentLastName = StudentLastNameTextBox.Text;
+            //studentDOB = ;
+            studentEmail = StudentEmailAddressTextBox.Text;
+            studentEmailConfirmation = StudentEmailConfirmationTextBox.Text;
+            studentPassword = StudentPasswordTextBox.Text;
+            studentPasswordConfirmation = StudentPasswordConfirmationTextBox.Text;
+            studentProgramme = StudentProgrammeDropDownList.SelectedValue;
+            captchaCode = StudentCaptchaResponseTextBox.Text;
+
+
+            //Checking if the fields are empty
+            if (!studentFirstName.IsNullOrWhiteSpace() && !studentLastName.IsNullOrWhiteSpace() && !studentEmail.IsNullOrWhiteSpace() && !studentEmailConfirmation.IsNullOrWhiteSpace() 
+                && !studentPassword.IsNullOrWhiteSpace() && !studentPasswordConfirmation.IsNullOrWhiteSpace() && studentProgramme != "") 
+            {
+                //confirming email address is entered correctly twice
+               if (studentEmail != studentEmailConfirmation)
+                {
+                    StudentErrorLabel.Text = "Email address does not match!";
+                }
+
+                //confirming password is entered correctly twice
+                if (studentPassword != studentPasswordConfirmation)
+                {
+                    StudentErrorLabel.Text = "Password does not match!";
+                }
+            }
+
+            PersonName studentName = new PersonName(studentFirstName, studentLastName);                     
+             
+            Student student = new Student ( )
         }
 
         protected void LecturerSubmitButton_Click(object sender, EventArgs e)
         {
-
+            //submit the lecturer registration information
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,16 @@ namespace kUwi_WebForm
         private string middleName;
         private string title;
 
-    public string FirstName
+        public PersonName(string firstName, string lastName)
+        {
+            if (!firstName.IsNullOrWhiteSpace() && !lastName.IsNullOrWhiteSpace()) 
+            {
+                FirstName = firstName.Trim();
+                LastName = lastName.Trim();
+            }
+        }
+            
+        public string FirstName
         {
             get { return firstName; }
             set { firstName = value; }

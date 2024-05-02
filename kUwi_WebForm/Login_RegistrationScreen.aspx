@@ -23,9 +23,16 @@
         <asp:Label ID="StudentEmailAddressLabel" runat="server" Text="Email Address "></asp:Label> <asp:TextBox ID="StudentEmailAddressTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label> <asp:TextBox ID="StudentEmailConfirmationTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentPasswordLabel" runat="server" Text="Password "></asp:Label> <asp:TextBox ID="StudentPasswordTextBox" runat="server"></asp:TextBox><br />
+        <asp:Label ID="StudentProgramLabel" runat="server" Text="Programme "></asp:Label> <asp:DropDownList ID="StudentProgrammeDropDownList " runat="server">
+            <asp:ListItem Selected ="True" Value=""> Select Program</asp:ListItem>
+            <asp:ListItem Value="ICT"> Information & Communication Technology </asp:ListItem>
+            <asp:ListItem Value="BC"> Building Construction </asp:ListItem>
+            <asp:ListItem Value="BM"> Business Management </asp:ListItem>
+            </asp:DropDownList>
         <asp:Label ID="StudentPasswordConfirmationLabel" runat="server" Text="Confirm Password "></asp:Label> <asp:TextBox ID="StudentPasswordConfirmationTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentCaptchaResponseLabel" runat="server" Text="Captcha Response "></asp:Label> <asp:TextBox ID="StudentCaptchaResponseTextBox" runat="server"></asp:TextBox><br />
         <asp:Button ID="StudentSubmitButton" runat="server" Text="Submit" OnClick="StudentSubmitButton_Click" />
+         <asp:Label ID="StudentErrorLabel" runat="server" Text=""></asp:Label>
     </asp:Panel><br /> <br />
     <asp:Panel ID="LecturerRegistrationPanel" runat="server">
         <asp:Label ID="LecturerFirstNameLabel" runat="server" Text="First Name "></asp:Label><asp:TextBox ID="LecturerFirstNameTextBox" runat="server"></asp:TextBox><br />
@@ -45,7 +52,7 @@
         <asp:Label ID="LecturerPasswordConfirmationLabel" runat="server" Text="Confirm Password "></asp:Label><asp:TextBox ID="LecturerPasswordConfirmationTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerCaptchaResponseLabel" runat="server" Text="Captcha Response "></asp:Label><asp:TextBox ID="LecturerCaptchaResponseTextBox" runat="server"></asp:TextBox><br />
         <asp:Button ID="LecturerSubmitButton" runat="server" Text="Submit" OnClick="LecturerSubmitButton_Click" />
-        
+         <asp:Label ID="LecturerErrorLabel" runat="server" Text=""></asp:Label>
     </asp:Panel>
 
     </asp:Panel>
