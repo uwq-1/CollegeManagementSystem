@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblloginPassword = new System.Windows.Forms.Label();
             this.lblloginName = new System.Windows.Forms.Label();
@@ -40,14 +41,15 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lblloginPassword, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblloginName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtloginPassword, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtloginUsername, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(155, 97);
+            this.tableLayoutPanel1.Controls.Add(this.lblloginName, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(154, 109);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -59,22 +61,24 @@
             // lblloginPassword
             // 
             this.lblloginPassword.AutoSize = true;
-            this.lblloginPassword.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblloginPassword.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblloginPassword.ForeColor = System.Drawing.Color.Yellow;
             this.lblloginPassword.Location = new System.Drawing.Point(6, 178);
             this.lblloginPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginPassword.Name = "lblloginPassword";
-            this.lblloginPassword.Size = new System.Drawing.Size(81, 18);
+            this.lblloginPassword.Size = new System.Drawing.Size(103, 29);
             this.lblloginPassword.TabIndex = 5;
             this.lblloginPassword.Text = "Password";
             // 
             // lblloginName
             // 
             this.lblloginName.AutoSize = true;
-            this.lblloginName.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblloginName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblloginName.ForeColor = System.Drawing.Color.Yellow;
             this.lblloginName.Location = new System.Drawing.Point(6, 0);
             this.lblloginName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginName.Name = "lblloginName";
-            this.lblloginName.Size = new System.Drawing.Size(117, 18);
+            this.lblloginName.Size = new System.Drawing.Size(157, 29);
             this.lblloginName.TabIndex = 4;
             this.lblloginName.Text = "Username / ID";
             // 
@@ -100,13 +104,15 @@
             // lblloginTitle
             // 
             this.lblloginTitle.AutoSize = true;
+            this.lblloginTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblloginTitle.Font = new System.Drawing.Font("Comic Sans MS", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblloginTitle.Location = new System.Drawing.Point(442, 10);
+            this.lblloginTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblloginTitle.Location = new System.Drawing.Point(557, 9);
             this.lblloginTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblloginTitle.Name = "lblloginTitle";
-            this.lblloginTitle.Size = new System.Drawing.Size(120, 55);
+            this.lblloginTitle.Size = new System.Drawing.Size(232, 55);
             this.lblloginTitle.TabIndex = 2;
-            this.lblloginTitle.Text = "Login";
+            this.lblloginTitle.Text = "Login Form";
             // 
             // btnloginSubmit
             // 
@@ -124,6 +130,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(995, 564);
             this.Controls.Add(this.btnloginSubmit);
             this.Controls.Add(this.lblloginTitle);
