@@ -21,7 +21,7 @@ namespace kUwi_WebForm
         public string CourseId
         {
             get { return courseId; }
-            set { courseId = value;  }
+            set { courseId = value; }
         }
         public string Lecturer
         {
@@ -37,7 +37,16 @@ namespace kUwi_WebForm
         {
             get { return semester; }
             set { semester = value; }
+
+            // select semester displays the courses available in the semester
+           /*if ( )
+
+            {
+
+            }*/
+
         }
+}
+        
     }
 
-}

@@ -26,8 +26,8 @@
         <asp:Label ID="StudentProgramLabel" runat="server" Text="Programme "></asp:Label> <asp:DropDownList ID="StudentProgrammeDropDownList " runat="server">
             <asp:ListItem Selected ="True" Value=""> Select Program</asp:ListItem>
             <asp:ListItem Value="ICT"> Information & Communication Technology </asp:ListItem>
-            <asp:ListItem Value="BC"> Building Construction </asp:ListItem>
-            <asp:ListItem Value="BM"> Business Management </asp:ListItem>
+            <asp:ListItem Value="BCON"> Building Construction </asp:ListItem>
+            <asp:ListItem Value="BMGT"> Business Management </asp:ListItem>
             </asp:DropDownList>
         <asp:Label ID="StudentPasswordConfirmationLabel" runat="server" Text="Confirm Password "></asp:Label> <asp:TextBox ID="StudentPasswordConfirmationTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentCaptchaResponseLabel" runat="server" Text="Captcha Response "></asp:Label> <asp:TextBox ID="StudentCaptchaResponseTextBox" runat="server"></asp:TextBox><br />
@@ -40,11 +40,12 @@
         <asp:Label ID="LecturerPositionLabel" runat="server" Text="Lecturer's Position ">
             </asp:Label><asp:DropDownList ID="LecturerPositionDropDownList" AutoPostBack="true" OnSelectedIndexChanged="LecturerPositionDropDownList_SelectedIndexChanged" runat="server">
                 <asp:ListItem Selected="True" Value="Select Posistion"> Select Position</asp:ListItem>
-                <asp:ListItem Value="Principal"> Principal</asp:ListItem>
-                <asp:ListItem Value="Head of The ICT Department"> Head of The ICt Department</asp:ListItem>
-                <asp:ListItem Value="Lecturer"> Lecturer</asp:ListItem>
-                <asp:ListItem Value="Lecturer's Assistant"> Lecturer's Assistant</asp:ListItem>
-                <asp:ListItem Value="Secretary"> Secretary</asp:ListItem>
+                <asp:ListItem Value="PRIN"> Principal</asp:ListItem>
+                <asp:ListItem Value="VP"> VICE Principal</asp:ListItem>
+                <asp:ListItem Value="H_ICT"> Head of The ICt Department</asp:ListItem>
+                <asp:ListItem Value="LEC"> Lecturer</asp:ListItem>
+                <asp:ListItem Value="LEC_ASS"> Lecturer's Assistant</asp:ListItem>
+                <asp:ListItem Value="SEC"> Secretary</asp:ListItem>
         </asp:DropDownList><br />
         <asp:Label ID="LecturerEmailAddressLabel" runat="server" Text="Email Address "></asp:Label><asp:TextBox ID="LecturerEmailAddressTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label><asp:TextBox ID="LecturerEmailConfirmationTextBox" runat="server"></asp:TextBox><br />
