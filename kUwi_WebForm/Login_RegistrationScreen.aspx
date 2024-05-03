@@ -19,6 +19,7 @@
     <asp:Panel ID="StudentRegistrationPanel" runat="server">
         <asp:Label ID="StudentFirstNameLabel" runat="server" Text="First Name "></asp:Label> <asp:TextBox ID="StudentFirstNameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentLastNameLabel" runat="server" Text="Last Name "></asp:Label> <asp:TextBox ID="StudentLastNameTextBox" runat="server"></asp:TextBox><br />
+        <asp:Label ID="StudentUserNameLabel" runat="server" Text="Username "></asp:Label> <asp:TextBox ID="StudentUsernameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentDateOfBirthLabel" runat="server" Text="D.O.B "></asp:Label> <asp:TextBox ID="StudentDateOfBirthTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentEmailAddressLabel" runat="server" Text="Email Address "></asp:Label> <asp:TextBox ID="StudentEmailAddressTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label> <asp:TextBox ID="StudentEmailConfirmationTextBox" runat="server"></asp:TextBox><br />
@@ -37,6 +38,7 @@
     <asp:Panel ID="LecturerRegistrationPanel" runat="server">
         <asp:Label ID="LecturerFirstNameLabel" runat="server" Text="First Name "></asp:Label><asp:TextBox ID="LecturerFirstNameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerLastNameLabel" runat="server" Text="Last Name "></asp:Label><asp:TextBox ID="LecturerLastNameTextBox" runat="server"></asp:TextBox><br />
+        <asp:Label ID="LecturerUsernameLabel" runat="server" Text="Username "></asp:Label> <asp:TextBox ID="LecturerUsernameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerPositionLabel" runat="server" Text="Lecturer's Position ">
             </asp:Label><asp:DropDownList ID="LecturerPositionDropDownList" AutoPostBack="true" OnSelectedIndexChanged="LecturerPositionDropDownList_SelectedIndexChanged" runat="server">
                 <asp:ListItem Selected="True" Value="Select Posistion"> Select Position</asp:ListItem>
