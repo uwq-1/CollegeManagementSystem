@@ -38,12 +38,17 @@ namespace CollegeManagementSystem
                     MessageBox.Show("Password do not match. Please try again.");
                 }
 
+                if (password == confirm_password)
+                {
+                    user.password = Utils.HashPassword(password);
+                    user.isDefaultPassword = false;
+                    kCollege_DbEntities.SaveChanges();
+                    MessageBox.Show("Password has been reset successfully.");
+                    Close();
+                }
 
-                user.password = Utils.HashPassword(password);
-                user.isDefaultPassword = false;
-                kCollege_DbEntities.SaveChanges();
-                MessageBox.Show("Password has been reset successfully.");
-                Close();
+                
+                
             }
             catch (Exception)
             {

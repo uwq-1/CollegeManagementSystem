@@ -45,14 +45,16 @@ namespace CollegeManagementSystem
                 // query database  for record
                 var user = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.id == id);
                 var genericPassword = defaultPassword;
-                //var hashed_password = Utils.HashPassword(genericSPassword);
                 var hashed_password = Utils.DefaultHashedPassword(genericPassword);
                 
                 user.password = hashed_password;
 
+                // Set user isDefaultPassword Status 
+                user.isDefaultPassword = true;
 
                 kCollege_DbEntities.SaveChanges();
-                MessageBox.Show("Your password has been reset!");
+                MessageBox.Show($"Your password has been reset!\n\r" +
+                    $"Your new password is :  {genericPassword}");
                 PopulateGrid();
             }
             catch (Exception ex)

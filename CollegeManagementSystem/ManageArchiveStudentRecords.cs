@@ -61,11 +61,11 @@ namespace CollegeManagementSystem
             {
                 // get Id of selected row
                 var id = (int)gvArchiveStudentsRecords.SelectedRows[0].Cells["id"].Value;
-                
+                var userid = (int)gvArchiveStudentsRecords.SelectedRows[0].Cells["id"].Value;
 
                 // query database  for record
                 var records = kCollege_DbEntities.StudentRegistrationRecords.FirstOrDefault(q => q.id == id);
-                
+                var userrecords = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.studentid == userid);
 
                 DialogResult dr = MessageBox.Show($"Are you sure you want to DELETE THIS RECORD:" +
                     $" Name : {records.Name}  SID : {records.Sid}\n\r ?",
@@ -76,6 +76,7 @@ namespace CollegeManagementSystem
                 {
 
                     // delete records from database
+                    kCollege_DbEntities.LoginRecords.Remove(userrecords);
                     kCollege_DbEntities.StudentRegistrationRecords.Remove(records);
                     kCollege_DbEntities.SaveChanges();
                     
