@@ -14,14 +14,17 @@ namespace kUwi_WebForm
         private string password = string.Empty;
         private string studentFirstName = string.Empty;
         private string studentLastName = string.Empty;
+        private string studentUsername = string.Empty;
         private string studentEmail = string.Empty;
         private string studentEmailConfirmation;
         private DateTime studentDOB;
         private string studentPassword = string.Empty;
         private string studentPasswordConfirmation;
-        private string studentProgramme;
+        private string studentProgrammeCode;
+        private string studentProgrammeName;
         private string lecturerFirstName = string.Empty;
         private string lecturerLastName = string.Empty;
+        private string lecturerUsername = string.Empty;
         private string lecturerPosition = string.Empty;
         private string lecturerEmail;
         private string lecturerEmailConfirmation;
@@ -115,18 +118,22 @@ namespace kUwi_WebForm
 
             studentFirstName = StudentFirstNameTextBox.Text;
             studentLastName = StudentLastNameTextBox.Text;
+            studentUsername = StudentUsernameTextBox.Text;
             //studentDOB = ;
             studentEmail = StudentEmailAddressTextBox.Text;
             studentEmailConfirmation = StudentEmailConfirmationTextBox.Text;
             studentPassword = StudentPasswordTextBox.Text;
             studentPasswordConfirmation = StudentPasswordConfirmationTextBox.Text;
-            studentProgramme = StudentProgrammeDropDownList.SelectedValue;
+            studentProgrammeCode = StudentProgrammeDropDownList.SelectedValue;
+            studentProgrammeName = StudentProgrammeDropDownList.Text;
+
             captchaCode = StudentCaptchaResponseTextBox.Text;
 
 
             //Checking if the fields are empty
-            if (!studentFirstName.IsNullOrWhiteSpace() && !studentLastName.IsNullOrWhiteSpace() && !studentEmail.IsNullOrWhiteSpace() && !studentEmailConfirmation.IsNullOrWhiteSpace() 
-                && !studentPassword.IsNullOrWhiteSpace() && !studentPasswordConfirmation.IsNullOrWhiteSpace() && studentProgramme != "") 
+            if (!studentFirstName.IsNullOrWhiteSpace() && !studentLastName.IsNullOrWhiteSpace() && !studentEmail.IsNullOrWhiteSpace() 
+                && !studentEmailConfirmation.IsNullOrWhiteSpace() && !studentPassword.IsNullOrWhiteSpace() 
+                && !studentPasswordConfirmation.IsNullOrWhiteSpace() && studentProgrammeCode != "" && !studentUsername.IsNullOrWhiteSpace()) 
             {
                 //confirming email address is entered correctly twice
                if (studentEmail != studentEmailConfirmation)
@@ -139,16 +146,67 @@ namespace kUwi_WebForm
                 {
                     StudentErrorLabel.Text = "Password does not match!";
                 }
+
+                PersonName studentName = new PersonName(studentFirstName, studentLastName);   //  created an instance of a class which is an object.
+                Programs programs = new Programs(studentProgrammeName, studentProgrammeCode);
+
+                Student student = new Student(studentName, programs, studentEmail);
+                student.LoginName = studentUsername;
+                student.Password = studentPassword;
+            }
+            else
+            {
+                StudentErrorLabel.Text = "Please complete ALL feilds";
             }
 
-            PersonName studentName = new PersonName(studentFirstName, studentLastName);                     
-             
-            Student student = new Student ( )
+           
         }
 
         protected void LecturerSubmitButton_Click(object sender, EventArgs e)
         {
             //submit the lecturer registration information
+
+            lecturerFirstName = lecturerFirstNameTextBox.Text;
+            lecturerLastName = lecturerUsernameTextBox.Text;
+            lecturerUsername = lecturerUsernameTextBox.Text;
+            lecturerPosition = lecturerPositionTextBox.Text;//ask vhas if this still works for dropdownlist
+            LecturerPositionDropDownList = LecturerPositionDropDownList.SelectedValue;
+            lecturerEmail = lecturerEmailAddressTextBox.Text;
+            lecturerEmailConfirmation = lecturerEmailConfirmationTextBox.Text;
+            lecturerPassword = lecturerPasswordTextBox.Text;
+            lecturerPasswordConfirmation = lecturerPasswordConfirmationTextBox.Text;
+            
+            captchaCode = lecturerCaptchaResponseTextBox.Text;
+
+
+            //Checking if the fields are empty
+            if (!lecturerFirstName.IsNullOrWhiteSpace() && !lecturerLastName.IsNullOrWhiteSpace() && !lecturerUsername.IsNullOrWhiteSpace() 
+                && LecturerPositionDropDownList != "" && !lecturerEmail.IsNullOrWhiteSpace() && !lecturerEmailConfirmation.IsNullOrWhiteSpace() 
+                && !lecturerPassword.IsNullOrWhiteSpace() && !lecturerPasswordConfirmation.IsNullOrWhiteSpace() )
+            {
+                //confirming email address is entered correctly twice
+                if (lecturerEmail != lecturerEmailConfirmation)
+                {
+                    lecturerErrorLabel.Text = "Email address does not match!";
+                }
+
+                //confirming password is entered correctly twice
+                if (lecturerPassword != lecturerPasswordConfirmation)
+                {
+                    lecturerErrorLabel.Text = "Password does not match!";
+                }
+
+                PersonName lecturerName = new PersonName(lecturerFirstName, lecturerLastName);   //  created an instance of a class which is an object.
+                
+                Lecturer lecturer = new Lecturer(LecturerName, lecturerPosition, LecturerEmail);
+                lecturer.LoginName = lecturerUsername;
+                lecturer.Password = lecturerPassword;
+            }
+            else
+            {
+                lecturerErrorLabel.Text = "Please complete ALL feilds";
+            }
+
         }
     }
 }

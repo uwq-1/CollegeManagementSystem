@@ -11,8 +11,15 @@ namespace kUwi_WebForm
         private string courseId;
         private string lecturer;
         private string description;
-        private int semester;
+       // private int semester;
 
+        //constructor with properties inside the bracket example
+        public Courses(string courseName, string courseId, string description) 
+        {
+            this.courseName = courseName;
+            this.courseId = courseId;
+            this.description = description;
+        }
         public string CourseName
         {
             get { return courseName; }
@@ -33,7 +40,7 @@ namespace kUwi_WebForm
             get { return description; }
             set { description = value; }
         }
-        public int Semester
+       /* public int Semester
         {
             get { return semester; }
             set { semester = value; }
@@ -45,8 +52,8 @@ namespace kUwi_WebForm
 
             }*/
 
-        }
+    }
 }
         
-    }
+    
 

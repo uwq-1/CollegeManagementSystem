@@ -159,6 +159,24 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.TextBox StudentLastNameTextBox;
 
         /// <summary>
+        /// StudentUserNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StudentUserNameLabel;
+
+        /// <summary>
+        /// StudentUsernameTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox StudentUsernameTextBox;
+
+        /// <summary>
         /// StudentDateOfBirthLabel control.
         /// </summary>
         /// <remarks>
@@ -346,6 +364,24 @@ namespace kUwi_WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox LecturerLastNameTextBox;
+
+        /// <summary>
+        /// LecturerUsernameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LecturerUsernameLabel;
+
+        /// <summary>
+        /// LecturerUsernameTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LecturerUsernameTextBox;
 
         /// <summary>
         /// LecturerPositionLabel control.
