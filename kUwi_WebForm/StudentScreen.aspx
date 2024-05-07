@@ -2,9 +2,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <asp:Panel ID="StudentScreen" runat="server">
-    <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen"></asp:Label>
+    <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen">
+        <asp:BulletedList ID="StudentBulletedList" runat="server">
+            BulletStyle= "Disc"
+        </asp:BulletedList>
+    </asp:Label>
 
 
 </asp:Panel>
+</asp:Content>
 
 
