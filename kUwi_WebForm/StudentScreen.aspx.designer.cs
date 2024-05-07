@@ -15,13 +15,13 @@ namespace kUwi_WebForm
     {
 
         /// <summary>
-        /// StudentScreen control.
+        /// StudentHomeScreen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel StudentScreen;
+        protected global::System.Web.UI.WebControls.Panel StudentHomeScreen;
 
         /// <summary>
         /// HomeScreen control.

@@ -1,10 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace kUwi_WebForm
 {
@@ -43,20 +38,10 @@ namespace kUwi_WebForm
                     LoginButton.Enabled = false;
                 }
                 //disable registration panel until regsitration link is clicked
-                //Registration.Enabled = false ;
-                Registration.Visible = false ;
-                //disable registration panel until regsitration link is clicked
-               // Registration.Enabled = false;
+                Registration.Visible = false;
                 StudentRegistrationPanel.Visible = false;
-                LecturerRegistrationPanel.Visible=false;
+                LecturerRegistrationPanel.Visible = false;
             }
-            //disable registration panel until regsitration link is clicked
-            //Registration.Enabled = false;
-            Registration.Visible = false;
-            StudentRegistrationPanel.Visible = false;
-            LecturerRegistrationPanel.Visible = false;
-            //StudentErrorLabel.Visible = false;
-
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
@@ -125,7 +110,7 @@ namespace kUwi_WebForm
             studentPassword = StudentPasswordTextBox.Text;
             studentPasswordConfirmation = StudentPasswordConfirmationTextBox.Text;
             studentProgrammeCode = StudentProgrammeDropDownList.SelectedValue;
-            studentProgrammeName = StudentProgrammeDropDownList.Text;
+            studentProgrammeName = StudentProgrammeDropDownList.SelectedItem.Text;
 
             captchaCode = StudentCaptchaResponseTextBox.Text;
 
@@ -166,45 +151,44 @@ namespace kUwi_WebForm
         {
             //submit the lecturer registration information
 
-            lecturerFirstName = lecturerFirstNameTextBox.Text;
-            lecturerLastName = lecturerUsernameTextBox.Text;
-            lecturerUsername = lecturerUsernameTextBox.Text;
-            lecturerPosition = lecturerPositionTextBox.Text;//ask vhas if this still works for dropdownlist
-            LecturerPositionDropDownList = LecturerPositionDropDownList.SelectedValue;
-            lecturerEmail = lecturerEmailAddressTextBox.Text;
-            lecturerEmailConfirmation = lecturerEmailConfirmationTextBox.Text;
-            lecturerPassword = lecturerPasswordTextBox.Text;
-            lecturerPasswordConfirmation = lecturerPasswordConfirmationTextBox.Text;
+            lecturerFirstName = LecturerFirstNameTextBox.Text;
+            lecturerLastName = LecturerUsernameTextBox.Text;
+            lecturerUsername = LecturerUsernameTextBox.Text;
+            lecturerPosition = LecturerPositionDropDownList.SelectedValue;
+            lecturerEmail = LecturerEmailAddressTextBox.Text;
+            lecturerEmailConfirmation = LecturerEmailConfirmationTextBox.Text;
+            lecturerPassword = LecturerPasswordTextBox.Text;
+            lecturerPasswordConfirmation = LecturerPasswordConfirmationTextBox.Text;
             
-            captchaCode = lecturerCaptchaResponseTextBox.Text;
+            captchaCode = LecturerCaptchaResponseTextBox.Text;
 
 
             //Checking if the fields are empty
             if (!lecturerFirstName.IsNullOrWhiteSpace() && !lecturerLastName.IsNullOrWhiteSpace() && !lecturerUsername.IsNullOrWhiteSpace() 
-                && LecturerPositionDropDownList != "" && !lecturerEmail.IsNullOrWhiteSpace() && !lecturerEmailConfirmation.IsNullOrWhiteSpace() 
+                && lecturerPosition != "" && !lecturerEmail.IsNullOrWhiteSpace() && !lecturerEmailConfirmation.IsNullOrWhiteSpace() 
                 && !lecturerPassword.IsNullOrWhiteSpace() && !lecturerPasswordConfirmation.IsNullOrWhiteSpace() )
             {
                 //confirming email address is entered correctly twice
                 if (lecturerEmail != lecturerEmailConfirmation)
                 {
-                    lecturerErrorLabel.Text = "Email address does not match!";
+                    LecturerErrorLabel.Text = "Email address does not match!";
                 }
 
                 //confirming password is entered correctly twice
                 if (lecturerPassword != lecturerPasswordConfirmation)
                 {
-                    lecturerErrorLabel.Text = "Password does not match!";
+                    LecturerErrorLabel.Text = "Password does not match!";
                 }
 
                 PersonName lecturerName = new PersonName(lecturerFirstName, lecturerLastName);   //  created an instance of a class which is an object.
                 
-                Lecturer lecturer = new Lecturer(LecturerName, lecturerPosition, LecturerEmail);
+                Lecturer lecturer = new Lecturer(lecturerName, lecturerPosition, lecturerEmail);
                 lecturer.LoginName = lecturerUsername;
                 lecturer.Password = lecturerPassword;
             }
             else
             {
-                lecturerErrorLabel.Text = "Please complete ALL feilds";
+                LecturerErrorLabel.Text = "Please complete ALL feilds";
             }
 
         }

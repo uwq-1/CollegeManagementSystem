@@ -189,6 +189,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="KIWA.Master" />
+    <Content Include="HomeScreen.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -254,6 +255,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Grades.cs" />
+    <Compile Include="HomeScreen.Master.cs">
+      <DependentUpon>HomeScreen.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Master.designer.cs">
+      <DependentUpon>HomeScreen.Master</DependentUpon>
+    </Compile>
     <Compile Include="KIWA.Master.cs">
       <DependentUpon>KIWA.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,10 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KIWA.Master" CodeBehind="LecturerScreen.aspx.cs" Inherits="kUwi_WebForm.LecturerScreen" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
-<asp:Panel ID="LecturerScreen" runat="server">
+<asp:Panel ID="LecturerHomeScreen" runat="server">
     <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen">
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <asp:BulletedList ID="StudentBulletedList" runat="server">
+        <asp:BulletedList ID="StudentBulletedList"
             BulletStyle= "Disc"
             DisplayMode="LinkButton"
             onClick="ItemsBulletedList_Click"

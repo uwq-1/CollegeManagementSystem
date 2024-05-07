@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Microsoft.Ajax.Utilities;
 
 namespace kUwi_WebForm
 {
@@ -13,6 +10,7 @@ namespace kUwi_WebForm
         private int id_Num;
         private string emailAddress;
         private string loginName;
+        private string password;
 
         public string Position  //Property
         {
@@ -38,25 +36,45 @@ namespace kUwi_WebForm
             set { loginName = value; }
         }
 
-
-        public Lecturer(PersonName name, string position, string emailAddress)//constructor
+        public string Password
         {
-
+            get { return password; }
+            set { password = value; }
         }
-        public void updatePosition(string position)
+
+        public string Name
         {
-
+            get { return $"{name.FirstName} {name.LastName}"; }
+            protected set { }
         }
-        public void updateCourse()
+        public Lecturer(PersonName name, string position, string emailAddress)//constructor 
         {
-
+            if (name != null && position != null && emailAddress.IsNullOrWhiteSpace())
+            {
+                this.name = name;
+                this.position = position;
+                this.emailAddress = emailAddress;
+            }
         }
-        public Courses[] getCourses()
+        public void UpdatePosition(string position)
+        {
+            //if the positions previous held has changed then create new position
+            if (!string.IsNullOrWhiteSpace(position) && this.position != position) 
+            {
+                this.position = position;
+            }
+        }
+        public void UpdateCourse( Courses [] selectedCourses)
+        {
+            
+            if (selectedCourses != null) 
+            {
+                courses = selectedCourses;
+            }
+        }
+        public Courses[] GetCourses()
         {
             return courses;
         }
-
-
-    
     }
 }

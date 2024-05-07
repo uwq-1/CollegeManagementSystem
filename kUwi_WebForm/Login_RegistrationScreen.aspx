@@ -24,7 +24,7 @@
         <asp:Label ID="StudentEmailAddressLabel" runat="server" Text="Email Address "></asp:Label> <asp:TextBox ID="StudentEmailAddressTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label> <asp:TextBox ID="StudentEmailConfirmationTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="StudentPasswordLabel" runat="server" Text="Password "></asp:Label> <asp:TextBox ID="StudentPasswordTextBox" runat="server"></asp:TextBox><br />
-        <asp:Label ID="StudentProgramLabel" runat="server" Text="Programme "></asp:Label> <asp:DropDownList ID="StudentProgrammeDropDownList " runat="server">
+        <asp:Label ID="StudentProgramLabel" runat="server" Text="Programme "></asp:Label> <asp:DropDownList ID="StudentProgrammeDropDownList" runat="server">
             <asp:ListItem Selected ="True" Value=""> Select Program</asp:ListItem>
             <asp:ListItem Value="ICT"> Information & Communication Technology </asp:ListItem>
             <asp:ListItem Value="BCON"> Building Construction </asp:ListItem>
@@ -59,5 +59,6 @@
     </asp:Panel>
 
     </asp:Panel>
+    </asp:Content>
 
 

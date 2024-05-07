@@ -1,8 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace kUwi_WebForm
 {
@@ -13,7 +10,6 @@ namespace kUwi_WebForm
         private string loginName;
         private string emailAddress;
         private Programs[] program ;
-       // private Courses[] courses;
         private int id_num;
         private int intakeYear;
         private Grades grades;
@@ -49,6 +45,11 @@ namespace kUwi_WebForm
             set { password = value; }
         }
 
+        public string Name
+        {
+            get { return $"{name.FirstName} {name.LastName}"; }
+            protected set { }
+        }
 
         public Student(PersonName name, Programs program, string emailAddress)
         {
@@ -59,19 +60,10 @@ namespace kUwi_WebForm
                 this.emailAddress = emailAddress;
             }
         }
-        public void updateCourse()
-        {
-
-        }
-        /*public Courses[] getCourses()
-        {
-            return courses;
-        }*/
         public Programs[] GetProgram()
         {
             return program;
-        }
-    
+        }    
 }
 
 }
