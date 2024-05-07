@@ -99,7 +99,12 @@ namespace CollegeManagementSystem
 
                 // query database  for record
                 var user = kCollege_DbEntities.LoginRecords.FirstOrDefault(q => q.id == id);
-                var userrecords = kCollege_DbEntities.UserRoles.FirstOrDefault(q => q.id == userid);
+                var userrecords = kCollege_DbEntities.UserRoles.FirstOrDefault(q => q.userid == userid);
+
+                PopulateStudentRecords();
+                var studentrecords = kCollege_DbEntities.StudentRegistrationRecords.FirstOrDefault(q => q.id == user.studentid);
+                PopulateTeacherRecords();
+                var teacherrecords = kCollege_DbEntities.TeacherRegistrationRecords.FirstOrDefault(q => q.id == user.teacherid);
 
                 DialogResult dr = MessageBox.Show($"Are you sure you want to DELETE THIS RECORD:" +
                     $" Name : {user.username}  \n\r ?",
@@ -111,6 +116,20 @@ namespace CollegeManagementSystem
                     user.isActive = false;
                     kCollege_DbEntities.UserRoles.Remove(userrecords);
                     kCollege_DbEntities.LoginRecords.Remove(user);
+
+
+                    if (studentrecords != null)
+                    {
+                        kCollege_DbEntities.StudentRegistrationRecords.Remove(studentrecords);
+                        kCollege_DbEntities.SaveChanges();
+                    }
+
+                    if (teacherrecords != null)
+                    {
+                        kCollege_DbEntities.TeacherRegistrationRecords.Remove(teacherrecords);
+                        kCollege_DbEntities.SaveChanges();
+                    }
+
                     kCollege_DbEntities.SaveChanges();
                     MessageBox.Show("User records has  been deleted!");
                 }
@@ -137,7 +156,39 @@ namespace CollegeManagementSystem
             }
         }
 
+        public void PopulateStudentRecords()
+        {
+            var records = kCollege_DbEntities
+                .StudentRegistrationRecords
+                .Select(q => new
+                {
+                    ID = q.id,
+                    SID = q.Sid,
+                    NAME = q.Name,
+                    PROGRAMME = q.TypesOfProgramme.name,
+                    Tution = q.Stution,
+                    EMAIL = q.Email,
+                    TEL = q.Phone,
+                    DOB = q.DateOfBirth
+                }).ToList();
+        }
 
+
+        public void PopulateTeacherRecords()
+        {
+            var records = kCollege_DbEntities
+                .TeacherRegistrationRecords
+                .Select(q => new
+                {
+                    ID = q.id,
+                    TID = q.Tid,
+                    NAME = q.name,
+                    MAJORSUBJECT = q.TypesOfMajorSubject.name,
+                    EMAIL = q.email,
+                    TEL = q.phone,
+                    DOB = q.DateOfBirth
+                }).ToList();
+        }
 
         public void PopulateGrid()
         {
@@ -150,7 +201,9 @@ namespace CollegeManagementSystem
                     ROLE =     q.UserRoles.FirstOrDefault().Role.name,
                     ISDEFAULTPASSWORD = q.isDefaultPassword,
                     STATUS =   q.isActive,
+                    STUID =    q.studentid,
                     STUNAME =  q.StudentRegistrationRecord.Name,
+                    LECTURERID = q.teacherid,
                     LECTURER = q.TeacherRegistrationRecord.name
                 })
                 .ToList();
@@ -165,7 +218,9 @@ namespace CollegeManagementSystem
             gvUserSettingsRecords.Columns["ROLE"].HeaderText = "Role";
             gvUserSettingsRecords.Columns["ISDEFAULTPASSWORD"].HeaderText = "Default Password";
             gvUserSettingsRecords.Columns["STATUS"].HeaderText = "Status";
+            gvUserSettingsRecords.Columns["STUID"].HeaderText = "Student id";
             gvUserSettingsRecords.Columns["STUNAME"].HeaderText = "Student name";
+            gvUserSettingsRecords.Columns["LECTURERID"].HeaderText = "Lecturer id";
             gvUserSettingsRecords.Columns["LECTURER"].HeaderText = "LECTURER";
             
         }

@@ -47,8 +47,6 @@ namespace CollegeManagementSystem
                     Close();
                 }
 
-                
-                
             }
             catch (Exception)
             {
