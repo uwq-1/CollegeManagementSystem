@@ -1,15 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LecturerScreen.aspx.cs" Inherits="kUwi_WebForm.LecturerScreen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KIWA.Master" CodeBehind="LecturerScreen.aspx.cs" Inherits="kUwi_WebForm.LecturerScreen" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
+<asp:Panel ID="LecturerScreen" runat="server">
+    <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen">
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:BulletedList ID="StudentBulletedList" runat="server">
+            BulletStyle= "Disc"
+            DisplayMode="LinkButton"
+            onClick="ItemsBulletedList_Click"
+            runat="Server">
+            <asp:ListItem Value="HomePage"> Home </asp:ListItem>
+            <asp:ListItem Value="StudentGradebook"> Student Gradebook </asp:ListItem>
+            <asp:ListItem Value="Account"> Account </asp:ListItem>
+            <asp:ListItem Value="Schedule"> Schedule </asp:ListItem>
+            <asp:ListItem Value="Registration"> Registration </asp:ListItem>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+        </asp:BulletedList>
+    </asp:Label>
+
+
+</asp:Panel>
+</asp:Content>
