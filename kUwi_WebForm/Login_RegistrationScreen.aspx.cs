@@ -51,8 +51,7 @@ namespace kUwi_WebForm
 
             //get password entered from password textbox
             password = PasswordTextBox.Text;
-
-            //put text in username variable
+//put text in username variable
             //put text in password variable
             //validate the information entered in the textboxes
             
