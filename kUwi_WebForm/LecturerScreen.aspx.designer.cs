@@ -15,6 +15,51 @@ namespace kUwi_WebForm
     {
 
         /// <summary>
+        /// ProfilePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ProfilePanel;
+
+        /// <summary>
+        /// ProfileNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ProfileNameLabel;
+
+        /// <summary>
+        /// EmailAddressLoginLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailAddressLoginLabel;
+
+        /// <summary>
+        /// LogoutLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LogoutLabel;
+
+        /// <summary>
+        /// ForgetPasswordLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ForgetPasswordLabel;
+
+        /// <summary>
         /// LecturerHomeScreen control.
         /// </summary>
         /// <remarks>
@@ -33,21 +78,12 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.Label HomeScreen;
 
         /// <summary>
-        /// Label1 control.
+        /// LecturerNavigationMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// StudentBulletedList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList StudentBulletedList;
+        protected global::System.Web.UI.WebControls.Menu LecturerNavigationMenu;
     }
 }

@@ -1,21 +1,39 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KIWA.Master" CodeBehind="LecturerScreen.aspx.cs" Inherits="kUwi_WebForm.LecturerScreen" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
+    <asp:Panel ID="ProfilePanel" runat="server">
+        <asp:Label ID="ProfileNameLabel" runat="server" Text="Profile Name"></asp:Label>
+        <asp:Label ID="EmailAddressLoginLabel" runat="server" Text="Email Address"></asp:Label>
+        <asp:Label ID="LogoutLabel" runat="server" Text="Logout"></asp:Label>
+        <asp:Label ID="ForgetPasswordLabel" runat="server" Text="Forget Password"></asp:Label>
+    </asp:Panel>
 <asp:Panel ID="LecturerHomeScreen" runat="server">
-    <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen">
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <asp:BulletedList ID="StudentBulletedList"
-            BulletStyle= "Disc"
-            DisplayMode="LinkButton"
-            onClick="ItemsBulletedList_Click"
-            runat="Server">
-            <asp:ListItem Value="HomePage"> Home </asp:ListItem>
-            <asp:ListItem Value="StudentGradebook"> Student Gradebook </asp:ListItem>
-            <asp:ListItem Value="Account"> Account </asp:ListItem>
-            <asp:ListItem Value="Schedule"> Schedule </asp:ListItem>
-            <asp:ListItem Value="Registration"> Registration </asp:ListItem>
+    <asp:Label ID="HomeScreen" runat="server" Text="Welcome!">
+        <asp:Menu ID="LecturerNavigationMenu" 
+            disappearafter="2000"
+            staticdisplaylevels="1"
+            orientation="Vertical"
+            runat="server">
+            <Items>
+                <asp:MenuItem NavigateUrl ="~/HomeScreen.Master"
+                    text="Home"
+                    tooltip="Home" />
+                <asp:MenuItem Selectable="true"
+                    text="Class"
+                    tooltip="Classes"/>
+                    <asp:MenuItem Selectable="true"
+                        text="Schedule"
+                        tooltip="Class Schedule"/>
+                        <asp:MenuItem Selectable="true"
+                            text="Appointments"
+                            tooltip="Appointment Book"/>
+                            <asp:MenuItem Selectable="true"
+                                text="Register"
+                                tooltip="Student Attendance" />
 
-        </asp:BulletedList>
+
+            </Items>
+        </asp:Menu>
     </asp:Label>
 
 

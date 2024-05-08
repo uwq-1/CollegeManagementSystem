@@ -1,8 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KIWA.Master" CodeBehind="StudentScreen.aspx.cs" Inherits="kUwi_WebForm.StudentScreen" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
+     <asp:Panel ID="ProfilePanel" runat="server">
+     <asp:Label ID="ProfileNameLabel" runat="server" Text="Profile Name"></asp:Label>
+     <asp:Label ID="EmailAddressLoginLabel" runat="server" Text="Email Address"></asp:Label>
+     <asp:Label ID="LogoutLabel" runat="server" Text="Logout"></asp:Label>
+     <asp:Label ID="ForgetPasswordLabel" runat="server" Text="Forget Password"></asp:Label>
+ </asp:Panel>
 <asp:Panel ID="StudentHomeScreen" runat="server">
-    <asp:Label ID="HomeScreen" runat="server" Text=" Home Screen">
+    <asp:Label ID="HomeScreen" runat="server" Text="Welcome!">
         <asp:Menu ID="StudentNavigationMenu" 
             disappearafter="2000"
             staticdisplaylevels="1"
