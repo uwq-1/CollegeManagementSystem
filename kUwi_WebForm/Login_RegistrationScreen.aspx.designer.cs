@@ -69,13 +69,13 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
 
         /// <summary>
-        /// ErrorLabel control.
+        /// LoginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        protected global::System.Web.UI.WebControls.Button LoginButton;
 
         /// <summary>
         /// RegistrationLinkButton control.
@@ -87,13 +87,13 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.LinkButton RegistrationLinkButton;
 
         /// <summary>
-        /// LoginButton control.
+        /// ErrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.Label ErrorLabel;
 
         /// <summary>
         /// Registration control.
@@ -249,24 +249,6 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.TextBox StudentPasswordTextBox;
 
         /// <summary>
-        /// StudentProgramLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StudentProgramLabel;
-
-        /// <summary>
-        /// StudentProgrammeDropDownList  control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StudentProgrammeDropDownList;
-
-        /// <summary>
         /// StudentPasswordConfirmationLabel control.
         /// </summary>
         /// <remarks>
@@ -283,6 +265,24 @@ namespace kUwi_WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StudentPasswordConfirmationTextBox;
+
+        /// <summary>
+        /// StudentProgramLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label StudentProgramLabel;
+
+        /// <summary>
+        /// StudentProgrammeDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList StudentProgrammeDropDownList;
 
         /// <summary>
         /// StudentCaptchaResponseLabel control.
