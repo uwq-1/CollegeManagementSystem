@@ -12,6 +12,9 @@ namespace kUwi_WebForm
 
     public class SecuredCredentials
     {
+        public SecuredCredentials ()
+        {
 
+        }
     }
 }
