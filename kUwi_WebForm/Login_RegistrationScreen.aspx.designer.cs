@@ -321,6 +321,24 @@ namespace kUwi_WebForm
         protected global::System.Web.UI.WebControls.Label StudentErrorLabel;
 
         /// <summary>
+        /// StudentPasswordRegularExpressionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator StudentPasswordRegularExpressionValidator;
+
+        /// <summary>
+        /// StudentPasswordConfirmationRegularExpressionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator StudentPasswordConfirmationRegularExpressionValidator;
+
+        /// <summary>
         /// LecturerRegistrationPanel control.
         /// </summary>
         /// <remarks>

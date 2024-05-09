@@ -43,14 +43,14 @@
         <br />
         <asp:Label ID="StudentUserNameLabel" runat="server" Text="Username "></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentUsernameTextBox" runat="server"></asp:TextBox><br />
-        <asp:Label ID="StudentDateOfBirthLabel" runat="server" Text="D.O.B "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentDateOfBirthTextBox" runat="server"></asp:TextBox><br />
-        <asp:Label ID="StudentEmailAddressLabel" runat="server" Text="Email Address "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentEmailAddressTextBox" runat="server"></asp:TextBox><br />
-        <asp:Label ID="StudentEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label> &nbsp; <asp:TextBox ID="StudentEmailConfirmationTextBox" runat="server"></asp:TextBox><br />
-        <asp:Label ID="StudentPasswordLabel" runat="server" Text="Password "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentPasswordTextBox" runat="server"></asp:TextBox>
-        <br />
+        <asp:Label ID="StudentDateOfBirthLabel" runat="server" Text="D.O.B "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentDateOfBirthTextBox" runat="server" TextMode="Date"></asp:TextBox><br />
+        <asp:Label ID="StudentEmailAddressLabel" runat="server" Text="Email Address "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentEmailAddressTextBox" runat="server" TextMode="Email"></asp:TextBox><br />
+        <asp:Label ID="StudentEmailConfirmationLabel" runat="server" Text="Confirm Email Address "></asp:Label> &nbsp; <asp:TextBox ID="StudentEmailConfirmationTextBox" runat="server" TextMode="Email"></asp:TextBox><br />
+        <asp:Label ID="StudentPasswordLabel" runat="server" Text="Password "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="StudentPasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
+        <br />        
         <asp:Label ID="StudentPasswordConfirmationLabel" runat="server" Text="Confirm Password "></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="StudentPasswordConfirmationTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="StudentPasswordConfirmationTextBox"  runat="server" TextMode="Password"></asp:TextBox>
         <br />
         <asp:Label ID="StudentProgramLabel" runat="server" Text="Programme "></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="StudentProgrammeDropDownList" runat="server">
             <asp:ListItem Selected ="True" Value=""> Select Program</asp:ListItem>
@@ -71,7 +71,21 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <asp:Label ID="StudentErrorLabel" runat="server" Text=""></asp:Label>
         <br />
-    </asp:Panel><br /> <br />
+        <asp:RegularExpressionValidator id="StudentPasswordRegularExpressionValidator" 
+                     ControlToValidate="StudentPasswordTextBox"
+                     ValidationExpression="\w{8}$"
+                     Display="Static"
+                     ErrorMessage="Password must be at least 8 characters"
+                     EnableClientScript="False" 
+                     runat="server"/>
+        <asp:RegularExpressionValidator id="StudentPasswordConfirmationRegularExpressionValidator" 
+             ControlToValidate="StudentPasswordConfirmationTextBox"
+             ValidationExpression="\w{8}$"
+             Display="Static"
+             ErrorMessage="Password must be at least 8 characters"
+             EnableClientScript="False" 
+             runat="server" />
+       </asp:Panel><br /> <br />
     <asp:Panel ID="LecturerRegistrationPanel" runat="server">
         <asp:Label ID="LecturerFirstNameLabel" runat="server" Text="First Name "></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="LecturerFirstNameTextBox" runat="server"></asp:TextBox><br />
         <asp:Label ID="LecturerLastNameLabel" runat="server" Text="Last Name "></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="LecturerLastNameTextBox" runat="server"></asp:TextBox><br />

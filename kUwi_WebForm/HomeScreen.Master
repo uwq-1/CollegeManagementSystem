@@ -3,15 +3,20 @@
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+<head runat="server" id ="KIWAHeader">
+    <title>KIWA University</title>    
+    <asp:ContentPlaceHolder ID="Header" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+              <asp:Image ID="HomeScreenImage" runat="server" 
+                AlternateText="Image Text"
+                ImageAlign="middle"
+                ImageUrl="/Image/University students Image.jpg"/>
+
             </asp:ContentPlaceHolder>
         </div>
     </form>
