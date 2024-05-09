@@ -1,5 +1,7 @@
 ﻿using Microsoft.Ajax.Utilities;
 using System;
+using System.Data.SqlClient;
+using System.Runtime;
 
 namespace kUwi_WebForm
 {
@@ -51,7 +53,7 @@ namespace kUwi_WebForm
 
             //get password entered from password textbox
             password = PasswordTextBox.Text;
-//put text in username variable
+            //put text in username variable
             //put text in password variable
             //validate the information entered in the textboxes
             
@@ -133,20 +135,23 @@ namespace kUwi_WebForm
                 }
 
                 PersonName studentName = new PersonName(studentFirstName, studentLastName);   //  created an instance of a class which is an object.
-                Programs programs = new Programs(studentProgrammeName, studentProgrammeCode);
-
+                Programs programs = new Programs(studentProgrammeName, studentProgrammeCode);                              
+              
                 Student student = new Student(studentName, programs, studentEmail);
                 student.LoginName = studentUsername;
                 student.Password = studentPassword;
 
+                //Create Credentials Class
+                SecuredCredentials credentials = new SecuredCredentials(password,false,true);
+
                 //Connect and write student credentials and details to database
+                //Db_Connect_Modify("", ""); //First parameter connection string, second parameter insert statement
+
             }
             else
             {
                 StudentErrorLabel.Text = "Please complete ALL feilds";
-            }
-
-           
+            }           
         }
 
         protected void LecturerSubmitButton_Click(object sender, EventArgs e)
@@ -196,5 +201,35 @@ namespace kUwi_WebForm
             }
 
         }
+
+        private void Db_Connect_Modify(string connection, string queryString)
+        {
+            if (string.IsNullOrEmpty(connection))
+            {
+                throw new ApplicationException("Cannot connect to the database");
+            }
+            if (string.IsNullOrEmpty(queryString))
+            {
+                throw new ApplicationException("No command to run against database");
+            }
+            string connectionString = connection;
+            string query = queryString;
+
+            SqlConnection dBConnection = null;
+            try
+            {
+                using (dBConnection = new SqlConnection(connectionString)) //Create a database connection with connection string
+                {
+                    dBConnection.Open();
+                    var dBCommand = new SqlCommand(query, dBConnection); //Create a SQL Command with query string SELECT, DELETE, UPDATE
+                    int result = dBCommand.ExecuteNonQuery();
+                    dBConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }  
     }
 }

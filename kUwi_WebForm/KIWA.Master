@@ -61,7 +61,7 @@
              </div>
          </nav>
         <!--End of Nagivation Bar -->
-        <header class="w3-container w3-red w3-center" 
+        <header class="w3-container w3-blue w3-center" 
             style="background-image: 
             url(https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg); 
             padding:128px 16px;  

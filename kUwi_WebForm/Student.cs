@@ -27,6 +27,12 @@ namespace kUwi_WebForm
             protected set { }
         }
 
+        public int IntakeYear
+        {
+            get { return intakeYear; }
+            set { intakeYear = value; }
+        }
+
         public string EmailAddress
         {
             get { return emailAddress; }

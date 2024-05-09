@@ -78,6 +78,10 @@
                 </asp:DropDownList>
             <br />
             <br />
+             <asp:Label ID="StudentIntakeYearLabel" runat="server" Text="Intake Year: "></asp:Label>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <asp:TextBox ID="StudentIntakeYearTextBox" Width="280px" runat="server"></asp:TextBox> 
+            <br />
+            <br />
             <asp:Label ID="StudentCaptchaResponseLabel" runat="server" Text="Captcha Response: "></asp:Label>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <asp:TextBox ID="StudentCaptchaResponseTextBox" Width="280px" runat="server"></asp:TextBox>
             <br />
@@ -105,6 +109,28 @@
                  ErrorMessage="Password must be at least 8 characters"
                  EnableClientScript="False" 
                  runat="server" />
+            <asp:RangeValidator 
+                ID="IntakeYearRangeValidator" 
+                ControlToValidate="StudentIntakeYearTextbox"
+                ValidationExpression="^\d{4}$"
+                Display="Static"
+                ErrorMessage="Must be a validate year"
+                EnableClientScript="False"
+                 runat="server" />
+            <asp:RequiredFieldValidator 
+                ID="StudentFirstNameTextBoxRequiredFieldValidator" 
+                ControlToValidate="StudentFirstNameTextBox"                
+                Display="Static"
+                ErrorMessage="Please enter a first name"
+                EnableClientScript="False"
+                runat="server"/>
+            <asp:RequiredFieldValidator 
+                ID="StudentLastNameTextBoxRequiredFieldValidator" 
+                ControlToValidate="StudentLastNameTextBox"
+                Display="Static"
+                ErrorMessage="Please enter a last name"
+                EnableClientScript="False"
+                runat="server"/>
            </asp:Panel>
     <asp:Panel ID="LecturerRegistrationPanel" runat="server">
         <asp:Label ID="LecturerFirstNameLabel" runat="server" Text="First Name: "></asp:Label>
