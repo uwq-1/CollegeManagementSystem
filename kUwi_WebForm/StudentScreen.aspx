@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/HomeScreen.master" CodeBehind="StudentScreen.aspx.cs" Inherits="kUwi_WebForm.StudentScreen" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/KIWAInternal.master" CodeBehind="StudentScreen.aspx.cs" Inherits="kUwi_WebForm.StudentScreen" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server"> 
      <asp:Panel ID="ProfilePanel" runat="server">
      <asp:Label ID="ProfileNameLabel" runat="server" Text="Profile Name"></asp:Label>
      <asp:Label ID="EmailAddressLoginLabel" runat="server" Text="Email Address"></asp:Label>

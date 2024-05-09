@@ -103,7 +103,7 @@ namespace kUwi_WebForm
             studentFirstName = StudentFirstNameTextBox.Text;
             studentLastName = StudentLastNameTextBox.Text;
             studentUsername = StudentUsernameTextBox.Text;
-            //studentDOB = ;
+            studentDOB = DateTime.Parse(StudentDateOfBirthTextBox.Text);
             studentEmail = StudentEmailAddressTextBox.Text;
             studentEmailConfirmation = StudentEmailConfirmationTextBox.Text;
             studentPassword = StudentPasswordTextBox.Text;
@@ -117,7 +117,8 @@ namespace kUwi_WebForm
             //Checking if the fields are empty
             if (!studentFirstName.IsNullOrWhiteSpace() && !studentLastName.IsNullOrWhiteSpace() && !studentEmail.IsNullOrWhiteSpace() 
                 && !studentEmailConfirmation.IsNullOrWhiteSpace() && !studentPassword.IsNullOrWhiteSpace() 
-                && !studentPasswordConfirmation.IsNullOrWhiteSpace() && studentProgrammeCode != "" && !studentUsername.IsNullOrWhiteSpace()) 
+                && !studentPasswordConfirmation.IsNullOrWhiteSpace() && studentProgrammeCode != "" && !studentUsername.IsNullOrWhiteSpace()
+                && studentDOB != null && (DateTime.Now.Year - studentDOB.Year > 16)) 
             {
                 //confirming email address is entered correctly twice
                if (studentEmail != studentEmailConfirmation)
@@ -137,6 +138,8 @@ namespace kUwi_WebForm
                 Student student = new Student(studentName, programs, studentEmail);
                 student.LoginName = studentUsername;
                 student.Password = studentPassword;
+
+                //Connect and write student credentials and details to database
             }
             else
             {
@@ -182,12 +185,14 @@ namespace kUwi_WebForm
                 PersonName lecturerName = new PersonName(lecturerFirstName, lecturerLastName);   //  created an instance of a class which is an object.
                 
                 Lecturer lecturer = new Lecturer(lecturerName, lecturerPosition, lecturerEmail);
-                lecturer.LoginName = lecturerUsername;
+                lecturer.LoginName = lecturerUsername; 
                 lecturer.Password = lecturerPassword;
+
+                //Connect and write lecturer credentials and details to database
             }
             else
             {
-                LecturerErrorLabel.Text = "Please complete ALL feilds";
+                LecturerErrorLabel.Text = "Please complete ALL fields";
             }
 
         }
