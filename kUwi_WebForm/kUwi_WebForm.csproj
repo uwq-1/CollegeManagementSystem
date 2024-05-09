@@ -303,6 +303,7 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Student.cs" />
+	 <Compile Include="SecuredCredentials.cs" />
     <Compile Include="StudentScreen.aspx.cs">
       <DependentUpon>StudentScreen.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
