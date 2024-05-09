@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="kUwi_WebForm.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="KIWAInternal.Master.cs" Inherits="kUwi_WebForm.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -6,11 +6,20 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %>KIWA University</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- Cascading Style Sheets (CSS) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- Cascading Style Sheets (CSS) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> <!-- Cascading Style Sheets (CSS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Font -->
+    <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+            .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+            .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -58,7 +67,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - KIWA University</p>
             </footer>
         </div>
     </form>

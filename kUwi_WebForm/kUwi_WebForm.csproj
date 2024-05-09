@@ -158,6 +158,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Image\University students Image.jpg" />
     <Content Include="LecturerScreen.aspx" />
     <Content Include="Login_RegistrationScreen.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -217,7 +218,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
+    <Content Include="KIWAInternal.Master" />
     <Content Include="StudentScreen.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -287,13 +288,12 @@
     <Compile Include="PersonName.cs" />
     <Compile Include="Programs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecuredCredentials.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="KIWAInternal.Master.cs">
+      <DependentUpon>KIWAInternal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="KIWAInternal.Master.designer.cs">
+      <DependentUpon>KIWAInternal.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
