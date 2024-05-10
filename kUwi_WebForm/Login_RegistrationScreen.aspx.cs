@@ -144,13 +144,14 @@ namespace kUwi_WebForm
                 //Create Credentials Class
                 SecuredCredentials credentials = new SecuredCredentials(password,false,true);
 
+                //"Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
                 //Connect and write student credentials and details to database
-                //Db_Connect_Modify("", ""); //First parameter connection string, second parameter insert statement
+                //Db_Connect_Modify("ITU-DATA-ITS-04\SQLEXPRESS", ""); //First parameter connection string, second parameter insert statement
 
             }
             else
             {
-                StudentErrorLabel.Text = "Please complete ALL feilds";
+                StudentErrorLabel.Text = "Please complete ALL fields";
             }           
         }
 

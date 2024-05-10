@@ -27,7 +27,7 @@ namespace kUwi_WebForm
             this.programmeCode = programmeCode;
 
 
-            //checking which programme is select to bring back the courses associated with it
+            //checking which programme is selected to bring back the courses associated with it
             if (programmeCode == "ICT")
             {
                 courses = new Courses[] { OralComCourse, FunCommCourse, PreCalCourse, OOPCourse, WebAppCourse };
