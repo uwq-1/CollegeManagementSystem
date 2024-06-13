@@ -17,6 +17,8 @@ namespace CollegeManagementSystem
         
         private readonly KUniversityDbModel kCollege_DbEntities;
 
+        
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -35,12 +37,12 @@ namespace CollegeManagementSystem
                 var username = txtloginUsername.Text.Trim();
                 var password = txtloginPassword.Text;
                 var hashed_password = Utils.HashPassword(password);
-
+                
 
                 var user = kCollege_DbEntities
                     .LoginRecords
                     .FirstOrDefault(q => 
-                    
+                        
                         q.username == username  
                         && 
                         q.password == hashed_password
@@ -48,11 +50,11 @@ namespace CollegeManagementSystem
                         q.isActive == true
 
                     );
-                
+
                 if (user == null)
                 {
                     MessageBox.Show("Please provide valid credentials");
-
+                    
                 }
                 else
                 {
