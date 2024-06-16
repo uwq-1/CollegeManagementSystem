@@ -52,6 +52,9 @@ namespace CollegeManagementSystem
                 // Set user isDefaultPassword Status 
                 user.isDefaultPassword = true;
 
+                // Set user isActive Status
+                user.isActive = true;
+
                 kCollege_DbEntities.SaveChanges();
                 MessageBox.Show($"Your password has been reset!\n\r" +
                     $"Your new password is :  {genericPassword}");

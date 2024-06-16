@@ -17,7 +17,7 @@ namespace CollegeManagementSystem
         
         private readonly KUniversityDbModel kCollege_DbEntities;
 
-        
+        public int loginAttempt;
 
         public LoginWindow()
         {
@@ -46,43 +46,81 @@ namespace CollegeManagementSystem
                         q.username == username  
                         && 
                         q.password == hashed_password
-                        &&
-                        q.isActive == true
-
+                        
                     );
+
+                var userDetails = kCollege_DbEntities
+                    .LoginRecords
+                    .FirstOrDefault(q =>
+                        q.username == username
+                        &&
+                        q.password != hashed_password
+                        
+                    );
+
+                
+                if (userDetails != null)
+                {
+                    
+                    loginAttempt++;
+                    
+                    if (loginAttempt == 3)
+                    {
+                        txtloginUsername.Enabled = false;
+                        txtloginPassword.Enabled = false;
+                        btnloginSubmit.Enabled = false;
+                        userDetails.isActive = false;
+                        kCollege_DbEntities.SaveChanges();
+                        MessageBox.Show("Please contact admin to unlock your account. Exceed the amount of login attempts.");
+                    }
+                    
+                }
 
                 if (user == null)
                 {
-                    MessageBox.Show("Please provide valid credentials");
+                    if (loginAttempt != 3)
+                    {
+                        MessageBox.Show("Please provide valid credentials");
+                    }
                     
                 }
                 else
                 {
-                    var role = user.UserRoles.FirstOrDefault();
-                    var roleShortName = role.Role.shortname;
-                    
-                    var mainWindow = new MainWindow(this, role, user);
-                    mainWindow.Show();
-                    Hide();
 
-
-
-                    if (roleShortName == "student")
+                    if ((bool)user.isActive)
                     {
-                        MessageBox.Show($"You have successfully login.\n\r" +
-                            $" Welcome back {user.StudentRegistrationRecord.Name}");
+
+                        var role = user.UserRoles.FirstOrDefault();
+                        var roleShortName = role.Role.shortname;
+
+                        var mainWindow = new MainWindow(this, role, user);
+                        mainWindow.Show();
+                        Hide();
+
+
+                        if (roleShortName == "student")
+                        {
+                            MessageBox.Show($"You have successfully login.\n\r" +
+                                $" Welcome back {user.StudentRegistrationRecord.Name}");
+                        }
+
+                        if (roleShortName == "teacher")
+                        {
+                            MessageBox.Show($"You have successfully login.\n\r" +
+                                $" Welcome back {user.TeacherRegistrationRecord.name}");
+                        }
+
+                        if (roleShortName != "student" && roleShortName != "teacher")
+                        {
+                            // General Message
+                            MessageBox.Show("You  have successfully login.");
+                        }
+
+
                     }
-
-                    if (roleShortName == "teacher")
+                    else
                     {
-                        MessageBox.Show($"You have successfully login.\n\r" +
-                            $" Welcome back {user.TeacherRegistrationRecord.name}");
-                    }
-
-                    if (roleShortName != "student" && roleShortName != "teacher")
-                    {
-                        // General Message
-                        MessageBox.Show($"You have successfully login.");
+                        MessageBox.Show("User account locked. Please contact administrator department to unlock your account.");
                     }
 
 
