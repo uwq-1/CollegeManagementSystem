@@ -312,10 +312,12 @@
     <Content Include="Data\Scripts\KCollege_db_changes_10.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_11.sql" />
     <Content Include="Data\Scripts\KCollege_db_changes_12.sql" />
+    <Content Include="Data\Scripts\KCollege_db_changes_13.sql" />
     <Content Include="Icons\admissions-message-logo.png" />
     <Content Include="Icons\exiticon.png" />
     <Content Include="Icons\icons8-course-60.png" />
     <Content Include="Icons\icons8-grades-60.png" />
+    <Content Include="Icons\icons8-help-30.png" />
     <Content Include="Icons\icons8-user-settings-60.png" />
     <Content Include="Icons\icon_djt_mb_im_a_teacher_296691.png" />
     <Content Include="Icons\stdicon.png" />

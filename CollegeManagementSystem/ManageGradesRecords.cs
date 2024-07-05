@@ -147,6 +147,8 @@ namespace CollegeManagementSystem
                     CourseID = q.Cid,
                     LECTURER = q.Lecturername,
                     COMMENTS = q.Scomments,
+                    NOOFGRADES = q.NumOfGrades,
+                    AVERAGE = q.AverageGrade,
                     GRADE = q.Sgrade
 
                 })
@@ -163,7 +165,9 @@ namespace CollegeManagementSystem
             gvGradesRecords.Columns[4].HeaderText = "COURSE ID";
             gvGradesRecords.Columns[5].HeaderText = "LECTURER";
             gvGradesRecords.Columns[6].HeaderText = "DESCRIPTION";
-            gvGradesRecords.Columns[7].HeaderText = "GRADE";
+            gvGradesRecords.Columns[7].HeaderText = "No Of Grades";
+            gvGradesRecords.Columns[8].HeaderText = "AVERAGE";
+            gvGradesRecords.Columns[9].HeaderText = "GRADE";
         }
 
 

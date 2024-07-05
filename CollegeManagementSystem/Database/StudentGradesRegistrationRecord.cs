@@ -43,6 +43,10 @@ namespace CollegeManagementSystem.Database
 
         public int? SGradesRecordsid { get; set; }
 
+        public int? NumOfGrades { get; set; }
+
+        public int? AverageGrade { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudentCoursesRegistrationRecord> StudentCoursesRegistrationRecords { get; set; }
 

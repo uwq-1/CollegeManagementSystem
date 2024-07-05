@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentGradesWindow));
             this.lblstudentGrade = new System.Windows.Forms.Label();
             this.lblstudentCourseId = new System.Windows.Forms.Label();
             this.lblstudentCourseName = new System.Windows.Forms.Label();
@@ -45,6 +47,14 @@
             this.cbstudentGIdNo = new System.Windows.Forms.ComboBox();
             this.cbstudentGName = new System.Windows.Forms.ComboBox();
             this.cbstudentGLecturer = new System.Windows.Forms.ComboBox();
+            this.lblNoOfGrades = new System.Windows.Forms.Label();
+            this.txtstudentGNoOfGrades = new System.Windows.Forms.TextBox();
+            this.pbHelpNoOfGrades = new System.Windows.Forms.PictureBox();
+            this.toolTipNoOfGrades = new System.Windows.Forms.ToolTip(this.components);
+            this.pbGrades = new System.Windows.Forms.PictureBox();
+            this.toolTipGrades = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pbHelpNoOfGrades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGrades)).BeginInit();
             this.SuspendLayout();
             // 
             // lblstudentGrade
@@ -116,7 +126,7 @@
             // btnstudentGradesSubmit
             // 
             this.btnstudentGradesSubmit.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnstudentGradesSubmit.Location = new System.Drawing.Point(350, 442);
+            this.btnstudentGradesSubmit.Location = new System.Drawing.Point(350, 458);
             this.btnstudentGradesSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnstudentGradesSubmit.Name = "btnstudentGradesSubmit";
             this.btnstudentGradesSubmit.Size = new System.Drawing.Size(133, 47);
@@ -149,7 +159,7 @@
             // txtstudentGGrades
             // 
             this.txtstudentGGrades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstudentGGrades.Location = new System.Drawing.Point(154, 396);
+            this.txtstudentGGrades.Location = new System.Drawing.Point(154, 417);
             this.txtstudentGGrades.Margin = new System.Windows.Forms.Padding(4);
             this.txtstudentGGrades.Name = "txtstudentGGrades";
             this.txtstudentGGrades.Size = new System.Drawing.Size(329, 23);
@@ -159,7 +169,7 @@
             // 
             this.lblstudentGrades.AutoSize = true;
             this.lblstudentGrades.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstudentGrades.Location = new System.Drawing.Point(25, 401);
+            this.lblstudentGrades.Location = new System.Drawing.Point(25, 422);
             this.lblstudentGrades.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblstudentGrades.Name = "lblstudentGrades";
             this.lblstudentGrades.Size = new System.Drawing.Size(54, 18);
@@ -169,7 +179,7 @@
             // btnstudentGradesClear
             // 
             this.btnstudentGradesClear.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnstudentGradesClear.Location = new System.Drawing.Point(154, 442);
+            this.btnstudentGradesClear.Location = new System.Drawing.Point(154, 458);
             this.btnstudentGradesClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnstudentGradesClear.Name = "btnstudentGradesClear";
             this.btnstudentGradesClear.Size = new System.Drawing.Size(133, 47);
@@ -228,11 +238,57 @@
             this.cbstudentGLecturer.Size = new System.Drawing.Size(329, 21);
             this.cbstudentGLecturer.TabIndex = 40;
             // 
+            // lblNoOfGrades
+            // 
+            this.lblNoOfGrades.AutoSize = true;
+            this.lblNoOfGrades.Font = new System.Drawing.Font("Lucida Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoOfGrades.Location = new System.Drawing.Point(24, 391);
+            this.lblNoOfGrades.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNoOfGrades.Name = "lblNoOfGrades";
+            this.lblNoOfGrades.Size = new System.Drawing.Size(119, 18);
+            this.lblNoOfGrades.TabIndex = 41;
+            this.lblNoOfGrades.Text = "No.  of Grades";
+            // 
+            // txtstudentGNoOfGrades
+            // 
+            this.txtstudentGNoOfGrades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstudentGNoOfGrades.Location = new System.Drawing.Point(154, 386);
+            this.txtstudentGNoOfGrades.Margin = new System.Windows.Forms.Padding(4);
+            this.txtstudentGNoOfGrades.Name = "txtstudentGNoOfGrades";
+            this.txtstudentGNoOfGrades.Size = new System.Drawing.Size(329, 23);
+            this.txtstudentGNoOfGrades.TabIndex = 42;
+            // 
+            // pbHelpNoOfGrades
+            // 
+            this.pbHelpNoOfGrades.Image = ((System.Drawing.Image)(resources.GetObject("pbHelpNoOfGrades.Image")));
+            this.pbHelpNoOfGrades.Location = new System.Drawing.Point(535, 376);
+            this.pbHelpNoOfGrades.Name = "pbHelpNoOfGrades";
+            this.pbHelpNoOfGrades.Size = new System.Drawing.Size(30, 30);
+            this.pbHelpNoOfGrades.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbHelpNoOfGrades.TabIndex = 43;
+            this.pbHelpNoOfGrades.TabStop = false;
+            this.pbHelpNoOfGrades.MouseHover += new System.EventHandler(this.pbHelpNoOfGrades_MouseHover);
+            // 
+            // pbGrades
+            // 
+            this.pbGrades.Image = ((System.Drawing.Image)(resources.GetObject("pbGrades.Image")));
+            this.pbGrades.Location = new System.Drawing.Point(535, 422);
+            this.pbGrades.Name = "pbGrades";
+            this.pbGrades.Size = new System.Drawing.Size(30, 30);
+            this.pbGrades.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbGrades.TabIndex = 44;
+            this.pbGrades.TabStop = false;
+            this.pbGrades.MouseHover += new System.EventHandler(this.pbGrades_MouseHover);
+            // 
             // StudentGradesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 502);
+            this.ClientSize = new System.Drawing.Size(667, 518);
+            this.Controls.Add(this.pbGrades);
+            this.Controls.Add(this.pbHelpNoOfGrades);
+            this.Controls.Add(this.txtstudentGNoOfGrades);
+            this.Controls.Add(this.lblNoOfGrades);
             this.Controls.Add(this.cbstudentGLecturer);
             this.Controls.Add(this.cbstudentGName);
             this.Controls.Add(this.cbstudentGIdNo);
@@ -253,6 +309,8 @@
             this.Name = "StudentGradesWindow";
             this.Text = "Student Grades ";
             this.Load += new System.EventHandler(this.StudentGradesWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbHelpNoOfGrades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGrades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +335,11 @@
         private System.Windows.Forms.ComboBox cbstudentGIdNo;
         private System.Windows.Forms.ComboBox cbstudentGName;
         private System.Windows.Forms.ComboBox cbstudentGLecturer;
+        private System.Windows.Forms.Label lblNoOfGrades;
+        private System.Windows.Forms.TextBox txtstudentGNoOfGrades;
+        private System.Windows.Forms.PictureBox pbHelpNoOfGrades;
+        private System.Windows.Forms.ToolTip toolTipNoOfGrades;
+        private System.Windows.Forms.PictureBox pbGrades;
+        private System.Windows.Forms.ToolTip toolTipGrades;
     }
 }

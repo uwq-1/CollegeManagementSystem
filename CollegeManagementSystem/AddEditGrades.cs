@@ -16,6 +16,8 @@ namespace CollegeManagementSystem
         private bool isEditMode;
         private string studentBlank = "";
 
+        public int Average, sum = 0;
+
         private ManageGradesRecords _manageGradesRecords = null;
 
         private readonly KUniversityDbModel kCollege_DbEntities;
@@ -69,8 +71,8 @@ namespace CollegeManagementSystem
             txtstudentGRComments.Text = studentGradesRegistration.Scomments;
             
             txtstudentGRGrades.Text = studentGradesRegistration.Sgrade.ToString();
-
-
+            txtstudentGRNoOfGrades.Text = studentGradesRegistration.NumOfGrades.ToString();
+           
 
         }
 
@@ -79,7 +81,17 @@ namespace CollegeManagementSystem
             try
             {
                 string courseGDescription = txtstudentGRComments.Text;
-                int courseGGrades = Convert.ToInt32(txtstudentGRGrades.Text);
+
+                int j = 0;
+                var courseGGrades = txtstudentGRGrades.Text
+                                    .Split(',')
+                                    .Select(m => Int32.Parse(m.Trim()))
+                                    .ToArray();
+
+                int courseGNoOfGrades = Convert.ToInt32(txtstudentGRNoOfGrades.Text);
+                
+
+                
                 //string errorMessage = "";
                 string s = "";
 
@@ -92,11 +104,18 @@ namespace CollegeManagementSystem
                 // Clear Integer textbox
                 // Reference :
                 // https://stackoverflow.com/questions/16734172/checking-a-textbox-for-an-empty-string-an-integer-or-a-string
-                if (!int.TryParse(s, out courseGGrades))
+                if (!int.TryParse(s, out courseGGrades[j]))
                 {
                     txtstudentGRGrades.ResetText();
                     txtstudentGRGrades.AppendText(studentBlank);
                     txtstudentGRGrades.Clear();
+                }
+
+                if (!int.TryParse(s, out courseGNoOfGrades))
+                {
+                    txtstudentGRNoOfGrades.ResetText();
+                    txtstudentGRNoOfGrades.AppendText(studentBlank);
+                    txtstudentGRNoOfGrades.Clear();
                 }
 
 
@@ -121,7 +140,16 @@ namespace CollegeManagementSystem
                 string courseGStudentId = cbstudentGRIdNo.Text;
                 string courseGLecturer = cbstudentGRLecturer.Text;
                 string courseGDescription = txtstudentGRComments.Text;
-                int courseGGrades = Convert.ToInt32(txtstudentGRGrades.Text);
+
+                int j = 0;
+                var courseGGrades = txtstudentGRGrades.Text
+                                    .Split(',')
+                                    .Select(m => Int32.Parse(m.Trim()))
+                                    .ToArray();
+
+                int courseGNoOfGrades = Convert.ToInt32(txtstudentGRNoOfGrades.Text);
+
+                //int courseGGrades = Convert.ToInt32(txtstudentGRGrades.Text);
 
 
                 bool isValid = true;
@@ -136,10 +164,33 @@ namespace CollegeManagementSystem
                     cbstudentGRLecturer.Focus();
                 }
 
-                if (courseGGrades >= 0 && courseGGrades <= 100)
+                if (courseGGrades[j] >= 0 && courseGGrades[j] <= 100)
                 {
                     // true
-                    MessageBox.Show($"Your have earned. {courseGGrades}%");
+
+                    for (int i = 0; i < courseGNoOfGrades; i++)
+                    {
+                        //courseGGrades;
+                        sum += courseGGrades[j];
+                        courseGGrades.ElementAtOrDefault(0);
+                        j++;
+                    }
+
+                    Average = sum / courseGNoOfGrades;
+                    // true
+
+                    var result = "";
+
+                    foreach (var item in courseGGrades)
+                    {
+                        //MessageBox.Show($"Your have earned. {item}%");
+                        result += item + "\n";
+                    }
+                    MessageBox.Show($"Your have earned. : \n\r" +
+                        $" {result}%");
+                    //MessageBox.Show($"Your have earned. {courseGGrades}%");
+                    MessageBox.Show($"Your average is :  {Average}%");
+
 
                 }
                 /*else
@@ -157,6 +208,20 @@ namespace CollegeManagementSystem
                     if (isEditMode)
                     {
                         // Edit Code here
+
+
+                        var result = "";
+
+                        foreach (var item in courseGGrades)
+                        {
+                            //MessageBox.Show($"Your have earned. {item}%");
+                            //MessageBox.Show($"{result}%");
+                            result += item + ",";
+                        }
+                        List<int> gradesNumbersList = courseGGrades.ToList();
+
+
+
                         var id = int.Parse(lblSRId.Text);
                         var studentGradesRegistration = kCollege_DbEntities.
                             StudentGradesRegistrationRecords
@@ -168,7 +233,12 @@ namespace CollegeManagementSystem
                         studentGradesRegistration.Sname = cbstudentGRName.Text;
                         studentGradesRegistration.Sid = cbstudentGRIdNo.Text;
                         studentGradesRegistration.Scomments = txtstudentGRComments.Text;
-                        studentGradesRegistration.Sgrade = Convert.ToInt32(txtstudentGRGrades.Text);
+                        //studentGradesRegistration.Sgrade = Convert.ToInt32(txtstudentGRGrades.Text);
+
+                        studentGradesRegistration.Sgrade = gradesNumbersList.FirstOrDefault();
+                        studentGradesRegistration.AverageGrade = Average;
+                        studentGradesRegistration.NumOfGrades = courseGNoOfGrades;
+
 
                         kCollege_DbEntities.SaveChanges();
 
@@ -178,11 +248,22 @@ namespace CollegeManagementSystem
                             $"Lecturer : {courseGLecturer}\n\r" +
                             $"Student Name : {courseGStudentName}  Student Id: {courseGStudentId}\n\r" +
                             $"Description : {courseGDescription}\n\r" +
-                            $"Grade : {courseGGrades}");
+                            $"Grade : {result}");
 
                     }
                     else
                     {
+
+                        var result = "";
+
+                        foreach (var item in courseGGrades)
+                        {
+                            //MessageBox.Show($"Your have earned. {item}%");
+                            //MessageBox.Show($"{result}%");
+                            result += item + ",";
+                        }
+                        List<int> gradesNumbersList = courseGGrades.ToList();
+
                         var studentGradesRegistration = new StudentGradesRegistrationRecord
                         {
                             Coursename = courseGName,
@@ -191,12 +272,13 @@ namespace CollegeManagementSystem
                             Sname = courseGStudentName,
                             Sid = courseGStudentId,
                             Scomments = courseGDescription,
-                            Sgrade = courseGGrades
+                            Sgrade = gradesNumbersList.FirstOrDefault(),
+                            AverageGrade = Average,
+                            NumOfGrades = courseGNoOfGrades
                         };
 
 
 
-                        //studentGradesRegistration.SGradesid = (int)cbstudentGCourseName.SelectedValue;
 
                         kCollege_DbEntities.StudentGradesRegistrationRecords.Add(studentGradesRegistration);
                         
@@ -208,7 +290,7 @@ namespace CollegeManagementSystem
                             $"Lecturer : {courseGLecturer}\n\r" +
                             $"Student Name : {courseGStudentName}  Student Id: {courseGStudentId}\n\r" +
                             $"Description : {courseGDescription}\n\r" +
-                            $"Grade : {courseGGrades}");
+                            $"Grade : {result}");
 
                     }
                     kCollege_DbEntities.SaveChanges();
@@ -241,6 +323,19 @@ namespace CollegeManagementSystem
             StudentGradeClearButton();
         }
 
+        private void pbHelpNoOfGrades_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTipNoOfGrades = new ToolTip();
+
+            toolTipNoOfGrades.SetToolTip(this.pbHelpNoOfGrades, "Enter numbers only example : 4 ");
+        }
+
+        private void pbGrades_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTipGrades = new ToolTip();
+
+            toolTipGrades.SetToolTip(this.pbGrades, "Format for Grades assuming you enter four above eg : 10,40,60,90");
+        }
 
         private void AddEditGrades_Load(object sender, EventArgs e)
         {

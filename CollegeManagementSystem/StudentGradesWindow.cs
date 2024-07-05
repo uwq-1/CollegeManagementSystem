@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CollegeManagementSystem.Database;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace CollegeManagementSystem
 {
@@ -16,6 +18,7 @@ namespace CollegeManagementSystem
         private readonly KUniversityDbModel kCollege_DbEntities;
 
         private string studentBlank = "";
+        public int Average, sum = 0;
 
         public StudentGradesWindow()
         {
@@ -28,8 +31,13 @@ namespace CollegeManagementSystem
             try
             {
                 string courseGDescription = txtstudentGComments.Text;
-                int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
-                //string errorMessage = "";
+                int j = 0;
+                var courseGGrades = txtstudentGGrades.Text
+                                    .Split(',')
+                                    .Select(m => Int32.Parse(m.Trim()))
+                                    .ToArray();
+
+                int courseGNoOfGrades = Convert.ToInt32(txtstudentGNoOfGrades.Text);
                 string s = "";
 
                 if (courseGDescription != string.Empty)
@@ -41,11 +49,19 @@ namespace CollegeManagementSystem
                 // Clear Integer textbox
                 // Reference :
                 // https://stackoverflow.com/questions/16734172/checking-a-textbox-for-an-empty-string-an-integer-or-a-string
-                if (!int.TryParse(s,out courseGGrades))
+                if (!int.TryParse(s,out courseGGrades[j]))
                 {
                     txtstudentGGrades.ResetText();
                     txtstudentGGrades.AppendText(studentBlank);
                     txtstudentGGrades.Clear();
+                }
+
+
+                if (!int.TryParse(s, out courseGNoOfGrades))
+                {
+                    txtstudentGNoOfGrades.ResetText();
+                    txtstudentGNoOfGrades.AppendText(studentBlank);
+                    txtstudentGNoOfGrades.Clear();
                 }
 
 
@@ -68,8 +84,16 @@ namespace CollegeManagementSystem
                 string courseGStudentId = cbstudentGIdNo.Text;
                 string courseGLecturer = cbstudentGLecturer.Text;
                 string courseGDescription = txtstudentGComments.Text;
-                int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
 
+                int courseGNoOfGrades = Convert.ToInt32(txtstudentGNoOfGrades.Text);
+                //int courseGGrades = Convert.ToInt32(txtstudentGGrades.Text);
+
+
+                int j = 0;
+
+                //int[] courseGGrades = new int[courseGNoOfGrades];
+                
+                
 
                 bool isValid = true;
                 string errorMessage = "";
@@ -83,10 +107,39 @@ namespace CollegeManagementSystem
                     cbstudentGLecturer.Focus();
                 }
 
-                if(courseGGrades >= 0 && courseGGrades <= 100)
+
+                // Reference : https://stackoverflow.com/questions/14667234/how-can-i-enter-multiple-doubles-into-a-textbox-separated-by-commas-and-store-in
+
+                var courseGGrades = txtstudentGGrades.Text
+                                    .Split(',')
+                                    .Select(m => Int32.Parse(m.Trim()))
+                                    .ToArray();
+
+                
+
+                if (courseGGrades[j] >= 0 && courseGGrades[j] <= 100)
                 {
+                    for (int i = 0; i < courseGNoOfGrades; i++)
+                    {
+                        //courseGGrades;
+                        sum += courseGGrades[j];
+                        j++;
+                    }
+                    
+                    Average = sum / courseGNoOfGrades;
                     // true
-                    MessageBox.Show($"Your have earned. {courseGGrades}%");
+
+                    var result = "";
+
+                    foreach (var item in courseGGrades)
+                    {
+                        //MessageBox.Show($"Your have earned. {item}%");
+                        result += item + "\n";
+                    }
+                    MessageBox.Show($"Your have earned. : \n\r" +
+                        $" {result}%");
+                    //MessageBox.Show($"Your have earned. {courseGGrades}%");
+                    MessageBox.Show($"Your average is :  {Average}%");
                     
                 }
                 /*else
@@ -100,8 +153,18 @@ namespace CollegeManagementSystem
 
                 if (isValid == true)
                 {
+                    var result = "";
+                    
+                    foreach (var item in courseGGrades)
+                    {
+                        //MessageBox.Show($"Your have earned. {item}%");
+                        //MessageBox.Show($"{result}%");
+                        result += item + ",";
+                    }
+                    List<int> gradesNumbersList = courseGGrades.ToList();
 
-
+                    
+                    
                     var studentGradesRecordsDb = new StudentGradesRegistrationRecord();
                     studentGradesRecordsDb.Coursename = courseGName;
                     studentGradesRecordsDb.Cid = courseGId;
@@ -109,11 +172,12 @@ namespace CollegeManagementSystem
                     studentGradesRecordsDb.Sname = courseGStudentName;
                     studentGradesRecordsDb.Sid = courseGStudentId;
                     studentGradesRecordsDb.Scomments = courseGDescription;
-                    studentGradesRecordsDb.Sgrade = courseGGrades;
-
+                    //studentGradesRecordsDb.Sgrade = (int?)courseGGrades;
+                    studentGradesRecordsDb.Sgrade = gradesNumbersList.FirstOrDefault();
+                    studentGradesRecordsDb.AverageGrade = Average;
+                    studentGradesRecordsDb.NumOfGrades = courseGNoOfGrades;
                     
 
-                    //studentGradesRecordsDb.SGradesid = (int)cbstudentGCourseName.SelectedValue;
 
                     kCollege_DbEntities.StudentGradesRegistrationRecords.Add(studentGradesRecordsDb);
                     kCollege_DbEntities.SaveChanges();
@@ -125,7 +189,7 @@ namespace CollegeManagementSystem
                         $"Lecturer : {courseGLecturer}\n\r" +
                         $"Student Name : {courseGStudentName}  Student Id: {courseGStudentId}\n\r" +
                         $"Description : {courseGDescription}\n\r" +
-                        $"Grade : {courseGGrades}");
+                        $"Grade : {result}");
 
                 }
                 else
@@ -154,6 +218,20 @@ namespace CollegeManagementSystem
             StudentGradeClearButton();
         }
 
+        private void pbHelpNoOfGrades_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTipNoOfGrades = new ToolTip();
+
+            toolTipNoOfGrades.SetToolTip(this.pbHelpNoOfGrades, "Enter numbers only example : 4 ");
+
+        }
+
+        private void pbGrades_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTipGrades = new ToolTip();
+
+            toolTipGrades.SetToolTip(this.pbGrades, "Format for Grades assuming you enter four above eg : 10,40,60,90");
+        }
 
         private void StudentGradesWindow_Load(object sender, EventArgs e)
         {
