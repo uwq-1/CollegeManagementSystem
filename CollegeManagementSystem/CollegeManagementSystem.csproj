@@ -324,6 +324,7 @@
     <Content Include="LoginImage\13264408_5192479.jpg" />
     <Content Include="LoginImage\23870043_6869528.jpg" />
     <Content Include="LoginImage\5939999_3084461.jpg" />
+    <Content Include="Sample Example\Kira  Burke - Pre-Calculus - Report.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

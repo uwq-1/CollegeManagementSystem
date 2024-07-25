@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,88 @@ namespace CollegeManagementSystem
         {
             InitializeComponent();
             kCollege_DbEntities = new KUniversityDbModel();
+        }
+
+        public void FileCreation()
+        {
+            string courseGId = cbstudentGCourseId.Text;
+            string courseGName = cbstudentGCourseName.Text;
+            string courseGStudentName = cbstudentGName.Text;
+            string courseGStudentId = cbstudentGIdNo.Text;
+            string courseGLecturer = cbstudentGLecturer.Text;
+            string courseGDescription = txtstudentGComments.Text;
+
+            int courseGNoOfGrades = Convert.ToInt32(txtstudentGNoOfGrades.Text);
+
+            int j = 0;
+            var result = "";
+            var courseGGrades = txtstudentGGrades.Text
+                                    .Split(',')
+                                    .Select(m => Int32.Parse(m.Trim()))
+                                    .ToArray();
+            
+
+            if (courseGGrades[j] >= 0 && courseGGrades[j] <= 100)
+            {
+                
+                // true
+
+                foreach (var item in courseGGrades)
+                {
+                    //MessageBox.Show($"Your have earned. {item}%");
+                    result += item + ",";
+                    
+                }
+                
+            }
+
+
+            DateTime dateTime = DateTime.Now;
+            var currentDate = dateTime.ToString("dddd, dd MMMM yyyy HH:mm:ss tt");
+
+
+            string filename = courseGStudentName + " - " +  courseGName + " - " + "Report"  +  ".txt" ;
+            var userDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+            
+
+            string path = 
+                Path
+                .Combine
+                (Environment.GetFolderPath
+                (Environment.SpecialFolder
+                .MyDocuments), 
+                filename);
+
+            //if (!File.Exists(path))
+            //{
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine($"********  {courseGStudentName}  " +
+                        $"Report ********\n\n");
+                    sw.WriteLine($"Course Id:  {courseGId} \n\r" +
+                        $"Course Name : {courseGName} \n\r" +
+                        $"Student Id:  {courseGStudentId} \n\r" +
+                        $"Student Name: {courseGStudentName} \n\r" +
+                        $"Lecturer: {courseGLecturer} \n\r" +
+                        $"Comment: {courseGDescription} \n\r" +
+                        $"Number of Grades: {courseGNoOfGrades} \n\r" +
+                        $"Grades: {result}\n\r" +
+                        $"Average: {Average}\n\r");
+
+                    
+                    sw.WriteLine("File was last modified : " + currentDate);
+                    sw.Close();
+                    
+                }
+
+
+                MessageBox.Show($"Your file has been updated on your local machine Filename : {filename} \n\r" +
+                    $"File Path : {path}\n\r");
+
+                
+            //}
+
         }
 
         public void StudentGradeClearButton() 
@@ -92,7 +175,8 @@ namespace CollegeManagementSystem
                 int j = 0;
 
                 //int[] courseGGrades = new int[courseGNoOfGrades];
-                
+
+                int maxNumber = 6;
                 
 
                 bool isValid = true;
@@ -105,6 +189,12 @@ namespace CollegeManagementSystem
                     isValid = false;
                     errorMessage += "Error : Please enter missing Lecturer and/or Description.\n\r";
                     cbstudentGLecturer.Focus();
+                }
+
+                if (courseGNoOfGrades >= maxNumber && courseGNoOfGrades != maxNumber)
+                {
+                    isValid = false;
+                    errorMessage += $"Error : Maximum value exceed ({maxNumber}).\n\r";
                 }
 
 
@@ -176,13 +266,13 @@ namespace CollegeManagementSystem
                     studentGradesRecordsDb.Sgrade = gradesNumbersList.FirstOrDefault();
                     studentGradesRecordsDb.AverageGrade = Average;
                     studentGradesRecordsDb.NumOfGrades = courseGNoOfGrades;
-                    
 
+                    FileCreation();
 
                     kCollege_DbEntities.StudentGradesRegistrationRecords.Add(studentGradesRecordsDb);
                     kCollege_DbEntities.SaveChanges();
 
-
+                    
                     // Display output with Messagebox
                     MessageBox.Show($"Thanks for your submission.\n" +
                         $"Course Name : {courseGName} Course ID: {courseGId} \n\r" +

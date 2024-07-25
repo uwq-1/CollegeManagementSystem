@@ -1,0 +1,14 @@
+********  Kira  Burke  Report ********
+
+
+Course Id:  MA124 
+Course Name : Pre-Calculus 
+Student Id:  5710126 
+Student Name: Kira  Burke 
+Lecturer: Dennis  Tyler 
+Comment: none 
+Number of Grades: 6 
+Grades: 70,50,64,64,58,60,
+Average: 61
+
+File was last modified : Monday, 15 July 2024 23:48:51 pm
