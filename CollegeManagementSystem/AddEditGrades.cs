@@ -153,11 +153,8 @@ namespace CollegeManagementSystem
             if (courseGGrades[j] >= 0 && courseGGrades[j] <= 100)
             {
 
-                // true
-
                 foreach (var item in courseGGrades)
                 {
-                    //MessageBox.Show($"Your have earned. {item}%");
                     result += item + ",";
 
                 }
@@ -181,8 +178,7 @@ namespace CollegeManagementSystem
                 .MyDocuments),
                 filename);
 
-            //if (!File.Exists(path))
-            //{
+            
             // Create a file to write to.
             using (StreamWriter sw = File.CreateText(path))
             {
@@ -207,9 +203,6 @@ namespace CollegeManagementSystem
 
             MessageBox.Show($"Your file has been updated on your local machine Filename : {filename} \n\r" +
                 $"File Path : {path}\n\r");
-
-
-            //}
 
         }
 
